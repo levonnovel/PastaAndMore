@@ -1,0 +1,124 @@
+﻿html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font-family: 'Noto Sans', sans-serif;
+}
+
+header {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+body {
+	height: 100%;
+	background: url(../images/bg3.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: 'Noto Sans', sans-serif;
+}
+
+.menuList {
+	list-style-type: none;
+	margin: 0;
+	overflow: hidden;
+	position: fixed;
+	top: 40px;
+	width: 100%;
+}
+
+	.menuList li {
+		float: left;
+	}
+
+	.menuList .firstListItem {
+		border-right: 2px solid #d38806;
+	}
+
+	.menuList .menuBack {
+		float: right;
+		border-right: 2px solid #d38806;
+	}
+
+	.menuList a {
+		display: block;
+		color: white;
+		text-align: center;
+		padding: 2px 30px;
+		text-decoration: none;
+		font-size: 20px;
+		transition: all 0.5s ease;
+	}
+
+	.menuList .menuBack a {
+		padding: 2px 10px;
+	}
+
+	.menuList .lastListItem {
+		border-right: none;
+	}
+
+	.menuList a:hover:not(.isActive) {
+		color: #d38806;
+	}
+
+	.menuList .isActive {
+		color: #d38806;
+		font-weight: bold;
+	}
+
+.menuList {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.cafeName {
+	position: relative;
+	top: 200px;
+	left: 30px;
+	font-size: 60px;
+	color: #fff;
+	font-weight: bold;
+}
+
+.orangeColor {
+	color: #d38806;
+}
+
+.wave {
+	position: relative;
+	top: 105px;
+	left: -20px;
+}
+
+svg {
+	width: 40%;
+}
+
+.quote1 .text1 {
+	font-size: 30px;
+	color: #fff;
+	font-weight: bold;
+}
+
+.quote1 .author1 {
+	font-size: 20px;
+	color: #fff;
+	font-weight: bold;
+}
+
+.quote1 {
+	position: relative;
+	top: -100px;
+	left: 30px;
+	border-left: 5px solid #d38806;
+}
+
+	.quote1 p {
+		padding-left: 20px;
+	}
+
+.textContainer {
+	width: 98%;
+}
