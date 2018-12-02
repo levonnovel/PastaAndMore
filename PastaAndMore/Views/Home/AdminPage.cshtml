@@ -1,0 +1,26 @@
+﻿@model List<PastaAndMore.Models.Category>
+
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>AdminPage</title>
+</head>
+<body>
+	<div>
+		<select>
+			@{
+				foreach(var cat in Model)
+				{
+					<option>@cat.Name</option>
+				}
+			}
+		</select>
+	</div>
+</body>
+</html>

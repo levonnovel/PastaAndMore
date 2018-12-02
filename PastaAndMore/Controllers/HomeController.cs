@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PastaAndMore.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,12 @@ namespace PastaAndMore.Controllers
 		public ActionResult Menu()
 		{
 			return View();
+		}
+		public ActionResult AdminPage()
+		{
+			List<Category> Categories = Category.GetAllCategories();
+
+			return View(Categories);
 		}
 	}
 }
