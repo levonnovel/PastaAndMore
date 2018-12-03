@@ -100,12 +100,14 @@
     <Content Include="Content\images\lemongarlicparmesamshrimppasta4-667x1000.jpg" />
     <Content Include="Content\images\Lobster-Pasta-Salad-by-Movita-Beaucoup-1.jpg" />
     <Content Include="Content\images\Rigatoni-Bolognese_ExtraLarge1000_ID-1102297.jpg" />
+    <Content Include="Content\MyScripts\AdminPage.js" />
     <Content Include="Content\MyStyles\pageStyle.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\MyScripts\jquery-3.3.1.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -119,6 +121,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

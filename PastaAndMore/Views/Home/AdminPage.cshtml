@@ -1,26 +1,31 @@
 ﻿@model List<PastaAndMore.Models.Category>
 
 @{
-	Layout = null;
+    Layout = null;
 }
 
 <!DOCTYPE html>
 
 <html>
 <head>
-	<meta name="viewport" content="width=device-width" />
-	<title>AdminPage</title>
+    <meta name="viewport" content="width=device-width" />
+    <title>AdminPage</title>
+    <script src="~/Content/MyScripts/jquery-3.3.1.js"></script>
+    <script src="~/Content/MyScripts/AdminPage.js"></script>
 </head>
 <body>
-	<div>
-		<select>
-			@{
-				foreach(var cat in Model)
-				{
-					<option>@cat.Name</option>
-				}
-			}
-		</select>
-	</div>
+    <div>
+        <input type="text" id="productName" placeholder="Input Product Name" />
+        <input type="text" id="productDesc" placeholder="Input Product Description" />
+        <select id="Cats">
+            @{
+                foreach (var cat in Model)
+                {
+                    <option>@cat.Name</option>
+                }
+            }
+        </select>
+        <button id="Add">Add</button>
+    </div>
 </body>
 </html>
