@@ -39,5 +39,31 @@ namespace PastaAndMore.Models
 				return CatList;
 			}
 		}
+		public static Category GetCategoryByName(string name)
+		{
+			Category Cat = new Category();
+
+			using (SqlConnection conn = new SqlConnection(cs))
+			{
+				SqlCommand cmd = new SqlCommand("SELECT * FROM Categories WHERE Name = @name", conn);
+				SqlParameter paramID = new SqlParameter("@name", name);
+				cmd.Parameters.Add(paramID);
+
+				conn.Open();
+				SqlDataReader dr = cmd.ExecuteReader();
+
+				while (dr.Read())
+				{
+
+					return new Category()
+					{
+						ID = Convert.ToInt32(dr["ID"]),
+						Name = dr["Name"].ToString(),
+						Description = dr["Description"].ToString()
+					};
+				}
+			}
+			return null;
+		}
 	}
 }
