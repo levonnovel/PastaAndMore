@@ -1,0 +1,53 @@
+﻿@*@model List<PastaAndMore.Models.Category>*@
+@model Tuple<List<PastaAndMore.Models.Category>, List<PastaAndMore.Models.Product>>
+
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>AdminPage</title>
+	<script src="~/Scripts/MyScripts/jquery-3.3.1.js"></script>
+	<script src="~/Scripts/MyScripts/AdminPage.js"></script>
+</head>
+<body>
+	<div>
+		<input type="text" id="productName" placeholder="Input Product Name" />
+		<input type="text" id="productDesc" placeholder="Input Product Description" />
+		<select id="Cats">
+			@{
+				foreach (var cat in Model.Item1)
+				{
+					<option>@cat.Name</option>
+				}
+			}
+		</select>
+		<button id="AddProd">Add</button>
+	</div>
+	<div>
+		<table border="1">
+			@{ 
+				
+				foreach(var prod in Model.Item2)
+				{
+			<tr>
+				<td>@prod.Name</td>
+				<td>@prod.Description</td>
+				<td>@prod.Cat.Name</td>
+			</tr>
+				}
+			}
+		</table>
+	</div>
+	<div>
+		<input type="text" id="catName" placeholder="Input Category Name" />
+		<input type="text" id="catDesc" placeholder="Input Category Description" />
+		
+		<button id="AddCat">Add</button>
+	</div>
+</body>
+</html>

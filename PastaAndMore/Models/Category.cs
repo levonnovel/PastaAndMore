@@ -65,5 +65,49 @@ namespace PastaAndMore.Models
 			}
 			return null;
 		}
+		public static Category GetCategoryByID(int ID)
+	
+	{
+			Category Cat = new Category();
+
+			using (SqlConnection conn = new SqlConnection(cs))
+			{
+				SqlCommand cmd = new SqlCommand("SELECT * FROM Categories WHERE ID = @id", conn);
+				SqlParameter paramID = new SqlParameter("@id", ID);
+				cmd.Parameters.Add(paramID);
+
+				conn.Open();
+				SqlDataReader dr = cmd.ExecuteReader();
+
+				while (dr.Read())
+				{
+
+					return new Category()
+					{
+						ID = Convert.ToInt32(dr["ID"]),
+						Name = dr["Name"].ToString(),
+						Description = dr["Description"].ToString()
+					};
+				}
+			}
+			return null;
+		}
+		public static void AddCategory(string name, string desc)
+		{
+
+			using (SqlConnection conn = new SqlConnection(cs))
+			{
+				SqlCommand cmd = new SqlCommand("INSERT INTO Categories VALUES(@name, @desc); ", conn);
+				SqlParameter paramID = new SqlParameter("@name", name);
+				SqlParameter paramDesc = new SqlParameter("@desc", desc);
+				cmd.Parameters.Add(paramID);
+				cmd.Parameters.Add(paramDesc);
+
+				conn.Open();
+				SqlDataReader dr = cmd.ExecuteReader();
+
+
+			}
+		}
 	}
 }

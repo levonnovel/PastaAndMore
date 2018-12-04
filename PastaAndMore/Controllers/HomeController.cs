@@ -19,16 +19,6 @@ namespace PastaAndMore.Controllers
 		{
 			return View();
 		}
-		public ActionResult AdminPage()
-		{
-			List<Category> Categories = Category.GetAllCategories();
-
-			return View(Categories);
-		}
-		public void AddProduct(string product, string desc, string cat)
-		{
-			Category c = Category.GetCategoryByName(cat);
-			Product.AddProduct(new Product() { Name = product, Description = desc, Cat_ID = c.ID});
-		}
+	
 	}
 }
