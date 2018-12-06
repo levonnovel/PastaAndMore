@@ -45,7 +45,7 @@
 		}
 
 		function errorFunc() {
-			alert('error');
+			alert('error1');
 		}
 	})
 
@@ -59,18 +59,22 @@
 			type: "POST",
 			url: 'Authorise',
 			data: jsonObj,
-			contentType: "application/json; charset=utf-8",
+			contentType: 'application/json; charset=utf-8',
 			dataType: "json",
 			success: successFunc,
 			error: errorFunc
 		});
 
 		function successFunc(data, status) {
-			alert(data);
+			alert(data.responseText);
+			if (data.success) {
+				location.href = "/Admin/Index";
+			}
 		}
 
-		function errorFunc() {
-			alert('error');
+		function errorFunc(data) {
+			//window.location.href = "/User/Home";
+			//alert(data.responseText);
 		}
 	})
 })

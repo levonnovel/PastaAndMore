@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -12,23 +13,39 @@ namespace PastaAndMore.Controllers
 
 		public ActionResult Index()
 		{
+			if(Session["login"] == null)
+			{
+				return RedirectToAction("Login");
+			}
 			List<Category> Categories = Category.GetAllCategories();
 			List<Product> Products = Product.GetAllProducts();
 			Tuple<List<Category>, List<Product>> P = new Tuple<List<Category>, List<Product>>(Categories, Products);
 			return View(P);
 		}
-		public ActionResult AdminLogin()
+		public ActionResult Login()
 		{
 			return View();
 		}
-		public ActionResult Authorise(string login, string password)
+		public JsonResult Authorise(string login, string password)
 		{
-			return RedirectToAction("Index");
-
+			
+			//return RedirectToAction("Index");
 			if (Admin.CheckAdmin(login, password))
 			{
-				RedirectToAction("Index");
+				Session["login"] = login;
+				Session.Timeout = 1;
+				return Json(new
+				{
+					success = true,
+					responseText = "The attached file is supported."
+				});
 			}
+
+			return Json(new
+			{
+				success = false,
+				responseText = "The attached file is not supported."
+			});
 		}
 		public void AddProduct(string product, string desc, string cat)
 		{
