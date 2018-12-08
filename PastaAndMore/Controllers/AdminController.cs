@@ -56,7 +56,7 @@ namespace PastaAndMore.Controllers
 			return Json(new
 			{
 				success = true,
-				responseText = "The product has been succesfully changed"
+				responseText = "The product has beens succesfully changed"
 			});
 		}
 		public JsonResult UpdateCategory(string id, string name, string desc)
