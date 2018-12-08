@@ -18,6 +18,7 @@
 	<div>
 		<input type="text" id="productName" placeholder="Input Product Name" />
 		<input type="text" id="productDesc" placeholder="Input Product Description" />
+		<input type="number" id="productPrice" placeholder="Input Product Price" />
 		<select id="Cats">
 			@{
 				foreach (var cat in Model.Item1)
@@ -26,18 +27,43 @@
 				}
 			}
 		</select>
-		<button id="AddProd">Add</button>
+		<button id="AddProduct">Add</button>
 	</div>
 	<div>
 		<table border="1">
-			@{ 
-				
-				foreach(var prod in Model.Item2)
+			@{
+
+				foreach (var prod in Model.Item2)
 				{
 			<tr>
-				<td>@prod.Name</td>
-				<td>@prod.Description</td>
-				<td>@prod.Cat.Name</td>
+				<td>@prod.ID</td>
+				<td contenteditable="true">@prod.Name</td>
+				<td contenteditable="true">@prod.Description</td>
+				<td contenteditable="true">@prod.Price</td>
+				<td contenteditable="true">
+
+					<select>
+						@foreach (var cat in Model.Item1)
+						{
+							if (prod.Cat.ID == cat.ID)
+							{
+								<option selected="selected">
+									@cat.Name
+								</option>
+							}
+							else
+							{
+								<option>
+									@cat.Name
+								</option>
+
+							}
+						}
+					</select>
+
+				</td>
+				<td><button class="updateProduct">save</button></td>
+				<td><button class="deleteProduct">delete</button></td>
 			</tr>
 				}
 			}
@@ -46,8 +72,26 @@
 	<div>
 		<input type="text" id="catName" placeholder="Input Category Name" />
 		<input type="text" id="catDesc" placeholder="Input Category Description" />
-		
-		<button id="AddCat">Add</button>
+
+		<button id="AddCategory">Add</button>
 	</div>
+	<div>
+		<table border="1">
+			@{
+
+				foreach (var cat in Model.Item1)
+				{
+					<tr>
+						<td>@cat.ID</td>
+						<td contenteditable="true">@cat.Name</td>
+						<td contenteditable="true">@cat.Description</td>
+						<td><button class="updateCategory">save</button></td>
+						<td><button class="deleteCategory">delete</button></td>
+					</tr>
+				}
+			}
+		</table>
+	</div>
+
 </body>
 </html>

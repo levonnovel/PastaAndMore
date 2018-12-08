@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Text;
 using System.Web;
 
 namespace PastaAndMore.Models
@@ -106,6 +107,55 @@ namespace PastaAndMore.Models
 				conn.Open();
 				SqlDataReader dr = cmd.ExecuteReader();
 
+
+			}
+		}
+		public static void Update(Category p)
+		{
+			Category origin = Category.GetCategoryByID(p.ID);
+
+
+			StringBuilder queryString = new StringBuilder("UPDATE Categories SET ");
+
+			foreach (var elem in origin.GetType().GetProperties())
+			{
+				if (elem.GetValue(p)?.ToString() != elem.GetValue(origin)?.ToString())
+				{
+					queryString.Append(elem.Name);
+					queryString.Append(" = ");
+					queryString.Append("@"); //elem.GetValue(this)
+					queryString.Append(elem.Name);
+					queryString.Append(", ");
+				}
+			}
+
+			queryString.Replace(",", "", queryString.Length - 20, 20);
+			queryString.Append("WHERE ID = ");
+			queryString.Append(p.ID);
+
+			using (SqlConnection conn = new SqlConnection(cs))
+			{
+				SqlCommand cmd = new SqlCommand(Convert.ToString(queryString), conn);
+				SqlParameter paramID = new SqlParameter("@name", p.Name);
+				SqlParameter paramDesc = new SqlParameter("@description", p.Description);
+				cmd.Parameters.Add(paramID);
+				cmd.Parameters.Add(paramDesc);
+
+				conn.Open();
+				SqlDataReader dr = cmd.ExecuteReader();
+
+			}
+		}
+		public static void Delete(int id)
+		{
+			using (SqlConnection conn = new SqlConnection(cs))
+			{
+				SqlCommand cmd = new SqlCommand("DELETE FROM Categories WHERe ID = @id", conn);
+				SqlParameter paramID = new SqlParameter("@id", id);
+				cmd.Parameters.Add(paramID);
+
+				conn.Open();
+				SqlDataReader dr = cmd.ExecuteReader();
 
 			}
 		}
