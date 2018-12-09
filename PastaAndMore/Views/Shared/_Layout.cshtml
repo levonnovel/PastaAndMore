@@ -1,43 +1,73 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8" />
-	<meta name="language" content="English">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>@ViewBag.Title - My ASP.NET Application</title>
-	<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-	<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="~/Content/MyStyles/pageStyle.css">
-	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-	<script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <meta charset="utf-8" />
+    <meta name="language" content="English">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/Content/MyStyles/pageStyle.css">
+    <link href="~/Content/MyStyles/menuStyle.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
-<body>
-	<header>
-		<ul class="menuList">
-			<li><a href="#" class="firstListItem isActive">Home</a></li>
-			<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.About, "About", "Home")</li>
-			<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Gallery, "Gallery", "Home")</li>
-			<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Directions, "Directions", "Home")</li>
-			<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Menu, "Menu", "Home")</li>
-			<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.About, "About", "Home")</li>
-			<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Contact, "Contact", "Home")</li>
-			
-			
-			<li class="menuBack lastListItem">@Html.ActionLink("EN", "Change", "MultiLanguage", new { LanguageAbbr = "en" }, null)</li>
-			<li class="menuBack lastListItem">@Html.ActionLink("RU", "Change", "MultiLanguage", new { LanguageAbbr = "ru" }, null) </li>
-			<li class="menuBack lastListItem">@Html.ActionLink("AM", "Change", "MultiLanguage", new { LanguageAbbr = "hy" }, null)</li>
-			@*<li class="menuBack"><a href="#" class="isActive">EN</a></li>*@
-		</ul>
-	</header>
+<body id="override">
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Pasta&More", "Index", "Home", new { @class = "navbar-brand" })
+                    @*<a class="navbar-brand" href="homeB.html"></a>*@
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="homeB.html">@PastaAndMore.Resources.HomeText.Home</a></li>
+                        <li><a href="menuB.html">@PastaAndMore.Resources.HomeText.Menu</a></li>
+                        <li><a href="#">@PastaAndMore.Resources.HomeText.Directions</a></li>
+                        <li><a href="#">@PastaAndMore.Resources.HomeText.About</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        @*<li class="active"><a href="#">EN</a></li>*@
+                        <li>@Html.ActionLink("EN", "Change", "MultiLanguage", new { LanguageAbbr = "en" }, new { @class = "active" })</li>
+                        <li>@Html.ActionLink("RU", "Change", "MultiLanguage", new { LanguageAbbr = "ru" }, null) </li>
+                        <li>@Html.ActionLink("AM", "Change", "MultiLanguage", new { LanguageAbbr = "hy" }, null)</li>
 
-	<div class="container body-content">
-		@RenderBody()
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-	</div>
-	<footer>
-		@*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
-	</footer>
-	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-	<script src="~/Scripts/bootstrap.min.js"></script>
+    @*<header>
+        <ul class="menuList">
+            <li><a href="#" class="firstListItem isActive">Home</a></li>
+            <li>@Html.ActionLink(PastaAndMore.Resources.HomeText.About, "About", "Home")</li>
+            <li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Gallery, "Gallery", "Home")</li>
+            <li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Directions, "Directions", "Home")</li>
+            <li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Menu, "Menu", "Home")</li>
+            <li>@Html.ActionLink(PastaAndMore.Resources.HomeText.About, "About", "Home")</li>
+            <li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Contact, "Contact", "Home")</li>
+            <li class="menuBack lastListItem">@Html.ActionLink("EN", "Change", "MultiLanguage", new { LanguageAbbr = "en" }, null)</li>
+            <li class="menuBack lastListItem">@Html.ActionLink("RU", "Change", "MultiLanguage", new { LanguageAbbr = "ru" }, null) </li>
+            <li class="menuBack lastListItem">@Html.ActionLink("AM", "Change", "MultiLanguage", new { LanguageAbbr = "hy" }, null)</li>
+            <li class="menuBack"><a href="#" class="isActive">EN</a></li>
+        </ul>
+    </header>*@
+
+    <div class="container body-content">
+        @RenderBody()
+        <footer>
+            @*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>
