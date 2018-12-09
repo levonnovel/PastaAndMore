@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
+	<meta name="language" content="English">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>@ViewBag.Title - My ASP.NET Application</title>
 	<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
@@ -14,14 +15,16 @@
 	<header>
 		<ul class="menuList">
 			<li><a href="#" class="firstListItem isActive">Home</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="#">Gallery</a></li>
-			<li><a href="#">Directions</a></li>
-			<li><a href="#">Menuasddsa</a></li>
-			<li><a href="#">Contact</a></li>
-			<li class="menuBack lastListItem"><a href="#">RU</a></li>
-			<li class="menuBack"><a href="#">AM</a></li>
-			<li class="menuBack"><a href="#" class="isActive">EN</a></li>
+			<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.About, "About", "Home")</li>
+			<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Gallery, "Gallery", "Home")</li>
+			<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Directions, "Directions", "Home")</li>
+			<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Menu, "Menu", "Home")</li>
+			<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.About, "About", "Home")</li>
+			<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Contact, "Contact", "Home")</li>
+			<li class="menuBack lastListItem">@Html.ActionLink("EN", "Change", "MultiLanguage", new { LanguageAbbr = "en" }, null)</li>
+			<li class="menuBack lastListItem">@Html.ActionLink("RU", "Change", "MultiLanguage", new { LanguageAbbr = "ru" }, null) </li>
+			<li class="menuBack lastListItem">@Html.ActionLink("AM", "Change", "MultiLanguage", new { LanguageAbbr = "hy" }, null)</li>
+			@*<li class="menuBack"><a href="#" class="isActive">EN</a></li>*@
 		</ul>
 	</header>
 
