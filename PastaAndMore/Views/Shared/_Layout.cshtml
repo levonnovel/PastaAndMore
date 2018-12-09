@@ -21,6 +21,8 @@
 			<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Menu, "Menu", "Home")</li>
 			<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.About, "About", "Home")</li>
 			<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Contact, "Contact", "Home")</li>
+			
+			
 			<li class="menuBack lastListItem">@Html.ActionLink("EN", "Change", "MultiLanguage", new { LanguageAbbr = "en" }, null)</li>
 			<li class="menuBack lastListItem">@Html.ActionLink("RU", "Change", "MultiLanguage", new { LanguageAbbr = "ru" }, null) </li>
 			<li class="menuBack lastListItem">@Html.ActionLink("AM", "Change", "MultiLanguage", new { LanguageAbbr = "hy" }, null)</li>
@@ -30,11 +32,11 @@
 
 	<div class="container body-content">
 		@RenderBody()
-		<footer>
-			@*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
-		</footer>
-	</div>
 
+	</div>
+	<footer>
+		@*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
+	</footer>
 	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
 	<script src="~/Scripts/bootstrap.min.js"></script>
 </body>
