@@ -91,17 +91,22 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\1530799895174.jpeg" />
+    <Content Include="Content\images\aaa.jpg" />
     <Content Include="Content\images\bg.jpg" />
     <Content Include="Content\images\bg1.jpg" />
     <Content Include="Content\images\bg2.jpg" />
     <Content Include="Content\images\bg3.jpg" />
     <Content Include="Content\images\Butternut-Squash-and-Spinac.jpg" />
     <Content Include="Content\images\Grilled-Chicken-Caesar-Salad-550x393.jpg" />
+    <Content Include="Content\images\img1.jpg" />
+    <Content Include="Content\images\img2.jpg" />
+    <Content Include="Content\images\img3.jpg" />
     <Content Include="Content\images\lemongarlicparmesamshrimppasta4-667x1000.jpg" />
     <Content Include="Content\images\Lobster-Pasta-Salad-by-Movita-Beaucoup-1.jpg" />
     <Content Include="Content\images\Rigatoni-Bolognese_ExtraLarge1000_ID-1102297.jpg" />
     <Content Include="Content\MyStyles\menuStyle.css" />
     <Content Include="Content\MyStyles\pageStyle.css" />
+    <Content Include="Content\MyStyles\styleB.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -129,6 +134,11 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\MenuText.Designer.cs">
+      <DependentUpon>MenuText.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Resources\HomeText.Designer.cs">
       <DependentUpon>HomeText.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -171,6 +181,10 @@
     <Folder Include="Views\MultiLanguage\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\MenuText.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MenuText.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\HomeText.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>HomeText.Designer.cs</LastGenOutput>
