@@ -5,16 +5,18 @@
     <meta name="language" content="English">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="~/Content/MyStyles/pageStyle.css">
-    <link href="~/Content/MyStyles/menuStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <link href="~/Content/MyStyles/styleB.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
-<body id="override">
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
     <header>
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -27,17 +29,27 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="homeB.html">@PastaAndMore.Resources.HomeText.Home</a></li>
-                        <li><a href="menuB.html">@PastaAndMore.Resources.HomeText.Menu</a></li>
-                        <li><a href="#">@PastaAndMore.Resources.HomeText.Directions</a></li>
-                        <li><a href="#">@PastaAndMore.Resources.HomeText.About</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#menu">
+                                Menu
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">@PastaAndMore.Resources.MenuText.Salads</a></li>
+                                <li><a href="#">Burgers</a></li>
+                                <li><a href="#">Pasta</a></li>
+                                <li><a href="#">Drinks</a></li>
+                                <li><a href="#">Souces</a></li>
+                                <li><a href="#">Soups</a></li>
+                            </ul>
+                        <li><a href="#gallery">@PastaAndMore.Resources.HomeText.Gallery</a></li>
+                        <li><a href="#about">@PastaAndMore.Resources.HomeText.About</a></li>
+                        <li><a href="#contacts">Contacts</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        @*<li class="active"><a href="#">EN</a></li>*@
-                        <li>@Html.ActionLink("EN", "Change", "MultiLanguage", new { Lang = "en" }, new { @class = "active" })</li>
-                        <li>@Html.ActionLink("RU", "Change", "MultiLanguage", new { Lang = "ru" }, null) </li>
-                        <li>@Html.ActionLink("AM", "Change", "MultiLanguage", new { Lang = "hy" }, null)</li>
-
+                        <li class="active">@Html.ActionLink("EN", "Change", "MultiLanguage", new { LanguageAbbr = "en" }, null)</li>
+                        <li>@Html.ActionLink("RU", "Change", "MultiLanguage", new { LanguageAbbr = "ru" }, null) </li>
+                        <li>@Html.ActionLink("AM", "Change", "MultiLanguage", new { LanguageAbbr = "hy" }, null)</li>
                     </ul>
                 </div>
             </div>
@@ -45,28 +57,97 @@
     </header>
 
     @*<header>
-        <ul class="menuList">
-            <li><a href="#" class="firstListItem isActive">Home</a></li>
-            <li>@Html.ActionLink(PastaAndMore.Resources.HomeText.About, "About", "Home")</li>
-            <li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Gallery, "Gallery", "Home")</li>
-            <li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Directions, "Directions", "Home")</li>
-            <li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Menu, "Menu", "Home")</li>
-            <li>@Html.ActionLink(PastaAndMore.Resources.HomeText.About, "About", "Home")</li>
-            <li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Contact, "Contact", "Home")</li>
-            <li class="menuBack lastListItem">@Html.ActionLink("EN", "Change", "MultiLanguage", new { LanguageAbbr = "en" }, null)</li>
-            <li class="menuBack lastListItem">@Html.ActionLink("RU", "Change", "MultiLanguage", new { LanguageAbbr = "ru" }, null) </li>
-            <li class="menuBack lastListItem">@Html.ActionLink("AM", "Change", "MultiLanguage", new { LanguageAbbr = "hy" }, null)</li>
-            <li class="menuBack"><a href="#" class="isActive">EN</a></li>
-        </ul>
-    </header>*@
+            <ul class="menuList">
+                <li><a href="#" class="firstListItem isActive">Home</a></li>
+                <li>@Html.ActionLink(PastaAndMore.Resources.HomeText.About, "About", "Home")</li>
+                <li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Gallery, "Gallery", "Home")</li>
+                <li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Directions, "Directions", "Home")</li>
+                <li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Menu, "Menu", "Home")</li>
+                <li>@Html.ActionLink(PastaAndMore.Resources.HomeText.About, "About", "Home")</li>
+                <li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Contact, "Contact", "Home")</li>
+                <li class="menuBack lastListItem">@Html.ActionLink("EN", "Change", "MultiLanguage", new { LanguageAbbr = "en" }, null)</li>
+                <li class="menuBack lastListItem">@Html.ActionLink("RU", "Change", "MultiLanguage", new { LanguageAbbr = "ru" }, null) </li>
+                <li class="menuBack lastListItem">@Html.ActionLink("AM", "Change", "MultiLanguage", new { LanguageAbbr = "hy" }, null)</li>
+                <li class="menuBack"><a href="#" class="isActive">EN</a></li>
+            </ul>
+        </header>*@
 
     <div class="container body-content">
         @RenderBody()
-        <footer>
-            @*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
-        </footer>
-    </div>
 
+    </div>
+    <footer class="container-fluid text-center">
+        <a href="#myPage" title="To Top">
+            <span class="glyphicon glyphicon-chevron-up"></span>
+        </a>
+        <div class="container-fluid text-center">
+            <div class="row slideanim">
+                <div class="col-md-3 col-xs-12">
+                    <span class="glyphicon glyphicon-earphone logo-small"></span>
+                    <h4>Contact Us</h4>
+                    <p>+37410502520</p>
+                    <p>+37455202520</p>
+                </div>
+                <div class="col-md-3 col-xs-12">
+                    <span class="glyphicon glyphicon-time logo-small"></span>
+                    <h4>Working Hours</h4>
+                    <p>Monday-Friday: 08:00-22:00</p>
+                    <p>Saturday-Sunday: 08:00-00:00</p>
+                </div>
+                <div class="col-md-3 col-xs-12">
+                    <span class="glyphicon glyphicon-shopping-cart logo-small"></span>
+                    <h4>Delivery</h4>
+                    <p>+37410502520</p>
+                </div>
+                <div class="row slideanim">
+                    <div class="col-md-3 col-xs-12">
+                        <span class="glyphicon glyphicon-comment logo-small"></span>
+                        <h4>Follow us on</h4>
+                        <a href="#" class="fa fa-facebook"></a>
+                        <a href="#" class="fa fa-twitter"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p>Copyright: Levon^2</p>
+    </footer>
+    <script>
+        $(document).ready(function () {
+            // Add smooth scrolling to all links in navbar + footer link
+            $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 900, function () {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+
+            $(window).scroll(function () {
+                $(".slideanim").each(function () {
+                    var pos = $(this).offset().top;
+
+                    var winTop = $(window).scrollTop();
+                    if (pos < winTop + 600) {
+                        $(this).addClass("slide");
+                    }
+                });
+            });
+        })
+    </script>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 </body>

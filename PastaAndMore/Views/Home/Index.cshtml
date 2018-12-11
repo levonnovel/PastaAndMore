@@ -1,14 +1,141 @@
 @{
-				/**/
-
-				ViewBag.Title = "Pasta&amp;More";
+	ViewBag.Title = "Pasta&amp;More";
 }
 
 <main>
-	<div class="container-quote quote-container">
-		<blockquote>
-			<p>Life is a combination of magic and pasta</p>
-			<footer>Federico Fellini</footer>
-		</blockquote>
-	</div>
+    <div id="menu">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+           @* <img src="~/Content/images/47380557_1610674105744439_2840051552591282176_o.jpg" />*@
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="~/Content/images/img1.jpg" alt="Pizza">
+                    <div class="carousel-caption">
+                        <h3><a href="#">Delicious Italian Pizzas</a></h3>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="~/Content/images/img2.jpg" alt="Burgers">
+                    <div class="carousel-caption">
+                        <h3><a href="#">Juiciest American Burgers</a></h3>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="~/Content/images/img3.jpg" alt="Salad">
+                    <div class="carousel-caption">
+                        <h3><a href="#">Delicate Continental Salads</a></h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <!-- Container (Pricing Section) -->
+        <div class="container-menu">
+            <div class="container-fluid">
+                <div class="text-center">
+                    <h2>Try also</h2>
+                    <h4>In Come&Sea you can also enjoy delicious breakfast, lunch and dinner</h4>
+                </div>
+                <div class="row slideanim">
+                    <div class="col-md-4 col-xs-12">
+                        <div class="panel panel-default text-center">
+                            <div class="panel-heading">
+                                <h1>Breakfast Menu</h1>
+                            </div>
+                            <div class="panel-body">
+                                <p>Types of breakfast offered</p>
+                            </div>
+                            <div class="panel-footer">
+                                <h3>From 2000 AMD</h3>
+                                <button class="btn btn-lg">See more</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <div class="panel panel-default text-center">
+                            <div class="panel-heading">
+                                <h1>Lunch Menu</h1>
+                            </div>
+                            <div class="panel-body">
+                                <p>Types of lunch offered</p>
+                            </div>
+                            <div class="panel-footer">
+                                <h3>From 2500 AMD</h3>
+                                <button class="btn btn-lg">See more</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <div class="panel panel-default text-center">
+                            <div class="panel-heading">
+                                <h1>Dinner Menu</h1>
+                            </div>
+                            <div class="panel-body">
+                                <p>Types of lunch offered</p>
+                            </div>
+                            <div class="panel-footer">
+                                <h3>From 3000 AMD</h3>
+                                <button class="btn btn-lg">See more</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Container (Portfolio Section) -->
+    <div id="gallery" class="container-fluid text-center bg-grey">
+        <h2>Gallery</h2><br>
+        <div class="row text-center slideanim">
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <img src="~/Content/images/aaa.jpg" alt="Abovyan St">
+                    <p><strong>Abovyan St</strong></p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <img src="~/Content/images/aaa.jpg" alt="Komitas St">
+                    <p><strong>Komitas St</strong></p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <img src="~/Content/images/aaa.jpg" alt="Koghbatsi St">
+                    <p><strong>Koghbatsi St</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container (About Section) -->
+    <div id="about" class="container-fluid">
+        About
+    </div>
+
+
+    <!-- Container (Contact Section) -->
+    <div id="contacts" class="container-fluid bg-grey">
+        Contact
+    </div>
 </main>
