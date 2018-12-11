@@ -16,16 +16,16 @@ namespace PastaAndMore.Controllers
 			return View();
 		}
 
-		public ActionResult Change(string LanguageAbbr)
+		public ActionResult Change(string Lang)
 		{
-			if(LanguageAbbr != null)
+			if(Lang != null)
 			{
-				Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(LanguageAbbr);
-				Thread.CurrentThread.CurrentUICulture = new CultureInfo(LanguageAbbr);
+				Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(Lang);
+				Thread.CurrentThread.CurrentUICulture = new CultureInfo(Lang);
 			}
 
 			HttpCookie cookie = new HttpCookie("Language");
-			cookie.Value = LanguageAbbr;
+			cookie.Value = Lang;
 			Response.Cookies.Add(cookie);
 
 			return View("~/Views/Home/Index.cshtml");

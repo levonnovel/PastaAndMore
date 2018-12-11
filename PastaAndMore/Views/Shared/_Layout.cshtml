@@ -34,9 +34,9 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         @*<li class="active"><a href="#">EN</a></li>*@
-                        <li>@Html.ActionLink("EN", "Change", "MultiLanguage", new { LanguageAbbr = "en" }, new { @class = "active" })</li>
-                        <li>@Html.ActionLink("RU", "Change", "MultiLanguage", new { LanguageAbbr = "ru" }, null) </li>
-                        <li>@Html.ActionLink("AM", "Change", "MultiLanguage", new { LanguageAbbr = "hy" }, null)</li>
+                        <li>@Html.ActionLink("EN", "Change", "MultiLanguage", new { Lang = "en" }, new { @class = "active" })</li>
+                        <li>@Html.ActionLink("RU", "Change", "MultiLanguage", new { Lang = "ru" }, null) </li>
+                        <li>@Html.ActionLink("AM", "Change", "MultiLanguage", new { Lang = "hy" }, null)</li>
 
                     </ul>
                 </div>
