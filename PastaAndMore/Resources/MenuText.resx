@@ -117,22 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Contact" xml:space="preserve">
-    <value>Contact</value>
+  <data name="AM" xml:space="preserve">
+    <value>AM</value>
   </data>
-  <data name="Directions" xml:space="preserve">
-    <value>Directions</value>
+  <data name="Burgers" xml:space="preserve">
+    <value>Burgers</value>
   </data>
-  <data name="Gallery" xml:space="preserve">
-    <value>Gallery</value>
+  <data name="Drinks" xml:space="preserve">
+    <value>Drinks</value>
   </data>
-  <data name="Home" xml:space="preserve">
-    <value>Home</value>
+  <data name="EN" xml:space="preserve">
+    <value>EN</value>
   </data>
-  <data name="Menu" xml:space="preserve">
-    <value>Menu</value>
+  <data name="Pasta" xml:space="preserve">
+    <value>Pasta</value>
+  </data>
+  <data name="RU" xml:space="preserve">
+    <value>RU</value>
   </data>
   <data name="Salads" xml:space="preserve">
     <value>Salads</value>
+  </data>
+  <data name="Souces" xml:space="preserve">
+    <value>Souces</value>
+  </data>
+  <data name="Soups" xml:space="preserve">
+    <value>Soups</value>
   </data>
 </root>

@@ -1,8 +1,18 @@
 html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: 'Noto Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /*font-family: 'Noto Sans', sans-serif;*/
+    font-family: 'PT Sans Narrow', sans-serif;
+    /*font-family: 'Dosis', sans-serif;*/
+    background-color: darkturquoise;
+
+}
+
+.body-container {
+    width: 100%;
+    margin-top: 30px !important;
+
 }
 
 header {
@@ -10,12 +20,14 @@ header {
   padding-right: 0;
 }
 
-.container-fluid {
-  padding: 60px 50px;
+.containerNav {
+  padding: 0 30px;
 }
+
 .bg-grey {
   background-color: #f6f6f6;
 }
+
 .logo-small {
   color: #f07813;
   font-size: 50px;
@@ -73,10 +85,10 @@ header {
 .container-menu .panel:hover {
   box-shadow: 5px 0px 40px rgba(0,0,0, .2);
 }
-.panel-footer .btn:hover {
-  border: 1px solid #f07813;
-  background-color: #fff !important;
-  color: #f07813 !important;
+.panel-footer .btn:hover, .container-about .submit-button .btn:hover{
+    border: 1px solid #f07813;
+    background-color: #fff !important;
+    color: #f07813 !important;
 }
 
 .container-menu .panel-heading {
@@ -94,23 +106,36 @@ header {
   color: #000;
   font-size: 14px;
 }
-.container-menu .panel-footer .btn {
+.container-menu .panel-footer .btn, .container-contact .submit-button .btn {
   margin: 5px 0;
   background-color: #f07813;
   color: #fff;
 }
-.navbar .container-fluid {
-  padding: 0 30px !important;
+
+.container-contact input, .container-contact textarea, .container-contact select {
+    border: 1px solid #f07813;
+    transition: box-shadow 0.5s;
+    color: #b4adb6;
 }
+
+.container-contact select {
+    padding-left: 8px;
+}
+
+    .container-contact input:hover, .container-contact textarea:hover, .container-contact select:hover {
+        box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+    }
+
+
 .navbar {
-  margin-bottom: 0;
-  background-color: #fff;
-  opacity: 0.9;
-  z-index: 9999;
-  border: 0;
-  font-size: 20px !important;
-  border-radius: 0;
-  font-family: 'Noto Sans', sans-serif;
+    margin-bottom: 0;
+    background-color: #fff;
+    opacity: 0.9;
+    z-index: 9999;
+    border: 0;
+    font-size: 20px !important;
+    border-radius: 0;
+    font-family: 'PT Sans Narrow', sans-serif;
 }
 .navbar li a, .navbar .navbar-brand {
   color: #f07813 !important;
@@ -159,6 +184,12 @@ header {
   padding: 100px 25px;
 }
 
+.panel-heading h1 {
+    font-size: 20px !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
 .dropdown-menu li:hover, .dropdown-menu li a:hover, .dropdown-menu li.active a {
   color: #f07813 !important;
   font-weight: bold;
@@ -202,35 +233,6 @@ footer .container-fluid {
   color: #fff;
 }
 
-
-.slideanim {visibility:hidden;}
-.slide {
-  animation-name: slide;
-  -webkit-animation-name: slide;
-  animation-duration: 1s;
-  -webkit-animation-duration: 1s;
-  visibility: visible;
-}
-@keyframes slide {
-  0% {
-    opacity: 0;
-    transform: translateY(70%);
-  } 
-  100% {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-}
-@-webkit-keyframes slide {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(70%);
-  } 
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-  }
-}
 @media screen and (max-width: 768px) {
   .col-sm-4 {
     text-align: center;
@@ -245,4 +247,33 @@ footer .container-fluid {
   .logo {
     font-size: 150px;
   }
+}
+
+footer h4 {
+    margin-top: 0;
+}
+
+footer p:not(.copyright-footer) {
+    margin-bottom: 0;
+}
+
+
+.container-about p, .container-about h4 {
+    text-align: left;
+}
+
+.container-about img {
+    width: 100%;
+}
+
+
+
+#map {
+    height: 343px; /* The height is 400 pixels */
+    width: 100%; /* The width is the width of the web page */
+    background-color: grey;
+}
+
+footer {
+    padding: 30px 30px;
 }
