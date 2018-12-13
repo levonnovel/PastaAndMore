@@ -1,0 +1,42 @@
+.menu-item .panel {
+    border-width: 0;
+    padding: 0 !important;
+}
+
+
+.menu-item .panel-heading, .menu-item .panel-footer {
+    background-color: #f0f0f0 !important;
+}
+
+.menu-item .panel-body {
+    background-color: #f07813 !important;
+    color: #fff;
+}
+
+    .menu-item .panel-body p {
+        margin: 0 0 0;
+    }
+
+.menu-item img {
+    width: 120px;
+}
+
+.menu-item .panel-heading h1 {
+    font-size: 30px !important;
+    color: #f07813;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.menu-item .panel-footer h4 {
+    font-size: 20px !important;
+}
+
+.menu-item .panel-footer h5 {
+    font-size: 18px !important;
+}
+
+.menu-item .panel-footer h6 {
+    font-size: 17px !important;
+}

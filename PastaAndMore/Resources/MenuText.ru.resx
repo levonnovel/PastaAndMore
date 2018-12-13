@@ -117,31 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
-    <value>О нас</value>
+  <data name="Burgers" xml:space="preserve">
+    <value>Бургеры</value>
   </data>
-  <data name="AM" xml:space="preserve">
-    <value>АРМ</value>
+  <data name="Drinks" xml:space="preserve">
+    <value>Напитки</value>
   </data>
-  <data name="Contact" xml:space="preserve">
-    <value>Контакты</value>
+  <data name="Pasta" xml:space="preserve">
+    <value>Паста</value>
   </data>
-  <data name="Directions" xml:space="preserve">
-    <value>Наш адрес</value>
+  <data name="Salads" xml:space="preserve">
+    <value>Салаты</value>
   </data>
-  <data name="EN" xml:space="preserve">
-    <value>АНГ</value>
+  <data name="Souces" xml:space="preserve">
+    <value>Соусы</value>
   </data>
-  <data name="Gallery" xml:space="preserve">
-    <value>Галерея</value>
-  </data>
-  <data name="Home" xml:space="preserve">
-    <value>Главная</value>
-  </data>
-  <data name="Menu" xml:space="preserve">
-    <value>Меню</value>
-  </data>
-  <data name="RU" xml:space="preserve">
-    <value>РУС</value>
+  <data name="Soups" xml:space="preserve">
+    <value>Супы</value>
   </data>
 </root>
