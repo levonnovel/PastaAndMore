@@ -10,14 +10,21 @@ namespace PastaAndMore.Controllers
 {
 	public class HomeController : Controller
 	{
+
+		public HomeController()
+		{
+			ViewData["CatList"] = Category.GetAllCategories();
+		}
 		// GET: Home
 		public ActionResult Index()
 		{
 			return View();
 		}
-		public ActionResult Menu()
+		public ActionResult Menu(string cat)
 		{
-			return View();
+			List<Product> products = Product.GetProductsByCatName(cat);
+			Tuple<List<Product>, string> t = new Tuple<List<Product>, string>(products, cat);
+			return View(t);
 		}
 	
 	}

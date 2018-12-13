@@ -3,7 +3,8 @@
 		var obj = {
 			name: $('#productName').val(),
 			desc: $('#productDesc').val(),
-			price: $('#productPrice').val(),
+			price: $('#productPrice').val(), 
+			path: $('#productImgPath').val(),
 			cat: $('#Cats').val()
 		}
 		console.log(obj);
@@ -91,13 +92,16 @@
 
 	$('.updateProduct').on('click', (e) => {
 		var product = $(e.target).parent().parent().children();
-		var id = $(product[0]).text();
-		var name = $(product[1]).text();
-		var desc = $(product[2]).text();
-		var price = $(product[3]).text();
-		var cat = $(product[4]).find("select").val();
-		console.log(name, desc, cat);
-		var obj = { id: id, name: name, desc: desc, price: price, catName: cat };
+
+		var obj = {
+			id: $(product[0]).text(),
+			name: $(product[1]).text(),
+			desc: $(product[2]).text(),
+			price: $(product[3]).text(),
+			path: $(product[4]).text(),
+			catName: $(product[5]).find("select").val()
+		}
+	
 		var jsonObj = JSON.stringify(obj);
 		console.log(jsonObj);
 

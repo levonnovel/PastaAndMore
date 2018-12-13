@@ -1,0 +1,131 @@
+﻿@model Tuple<List<PastaAndMore.Models.Product>, string>
+
+	@{
+		ViewBag.Title = Model.Item2;
+		Layout = "~/Views/Shared/_Layout.cshtml";
+	}	
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+	<div class="container-menu menu-item">
+		<div class="container-fluid">
+			<div class="row slideanim">
+
+				@foreach (var el in Model.Item1)
+				{
+					<div class="col-md-3 col-sm-6 col-xs-12 menu-elem">
+						<div class="panel panel-default text-center">
+							<div class="panel-heading">
+								<h1>@el.Name</h1>
+								<img src=@el.ImgPath />
+							</div>
+							<div class="panel-body">
+								<p>@el.Description</p>
+							</div>
+							<div class="panel-footer">
+								<h4>L: @el.Price AMD</h4>
+								<h5>M: @el.Price AMD</h5>
+								<h6>S: @el.Price AMD</h6>
+								<button class="btn btn-sm">See more</button>
+								<button class="btn btn-sm">Order</button>
+							</div>
+						</div>
+					</div>
+
+				}
+
+
+			</div>
+		</div>
+	</div>
+
+	<style type="text/css">
+		html, body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			font-family: 'Noto Sans', sans-serif;
+		}
+
+		.container-menu .panel {
+			border: 1px solid #f07813;
+			border-radius: 0 !important;
+			transition: box-shadow 0.5s;
+		}
+
+			.container-menu .panel:hover {
+				box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+			}
+
+		.panel-footer .btn:hover {
+			border: 1px solid #f07813;
+			background-color: #fff !important;
+			color: #f07813 !important;
+		}
+
+		.container-menu .panel-heading {
+			color: #fff !important;
+			background-color: #f07813 !important;
+			border-radius: 0;
+		}
+
+		.container-menu .panel-footer {
+			background-color: white !important;
+		}
+
+			.container-menu .panel-footer h3 {
+				font-size: 20px;
+			}
+
+			.container-menu .panel-footer h4 {
+				color: #000;
+				font-size: 14px;
+			}
+
+			.container-menu .panel-footer .btn {
+				margin: 5px 0;
+				background-color: #f07813;
+				color: #fff;
+			}
+
+		.menu-item .panel {
+			border-width: 0;
+			padding: 0 !important;
+		}
+
+
+		.menu-item .panel-heading, .menu-item .panel-footer {
+			background-color: #f0f0f0 !important;
+		}
+
+		.menu-item .panel-body {
+			background-color: #f07813 !important;
+			color: #fff;
+		}
+
+			.menu-item .panel-body p {
+				margin: 0 0 0;
+			}
+
+		.menu-item img {
+			width: 120px;
+		}
+
+		.menu-item .panel-heading h1 {
+			font-size: 30px !important;
+			color: #f07813;
+			margin-bottom: 5px;
+			margin-top: 5px;
+			font-weight: bold;
+		}
+
+		.menu-item .panel-footer h4 {
+			font-size: 20px !important;
+		}
+
+		.menu-item .panel-footer h5 {
+			font-size: 18px !important;
+		}
+
+		.menu-item .panel-footer h6 {
+			font-size: 17px !important;
+		}
+	</style>

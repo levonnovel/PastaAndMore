@@ -47,10 +47,10 @@ namespace PastaAndMore.Controllers
 				responseText = "The attached file is not supported."
 			});
 		}
-		public JsonResult UpdateProduct(string id, string name, string desc, int price, string catName)
+		public JsonResult UpdateProduct(string id, string name, string desc, int price, string path, string catName)
 		{
 
-			Product p = new Product() { ID = Convert.ToInt32(id), Name = name, Description = desc, Price = price, Cat = Category.GetCategoryByName(catName) };
+			Product p = new Product() { ID = Convert.ToInt32(id), Name = name, Description = desc, Price = price, ImgPath = path, Cat = Category.GetCategoryByName(catName) };
 			//Product p = Product.GetProductById(Convert.ToInt32(id));
 			Product.Update(p);
 			return Json(new
@@ -102,7 +102,7 @@ namespace PastaAndMore.Controllers
 				responseText = "The Category has been succesfully Deleted"
 			});
 		}
-		public JsonResult AddProduct(string name, string desc, int price, string cat)
+		public JsonResult AddProduct(string name, string desc, int price, string path, string cat)
 		{
 			List<Product> products = Product.GetAllProducts();
 
@@ -119,7 +119,7 @@ namespace PastaAndMore.Controllers
 			}
 
 			Category category = Category.GetCategoryByName(cat);
-			Product.AddProduct(new Product() { Name = name, Description = desc, Price = price, Cat = category });
+			Product.AddProduct(new Product() { Name = name, Description = desc, Price = price, ImgPath = path, Cat = category });
 			return Json(new
 			{
 				success = true,
