@@ -1,0 +1,53 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    display: inline-block;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0;
+    font-size: 25px;
+}
+
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.glyphicon {
+    font-size: 20px;
+    color: #f07813;
+}
+
+.input-area {
+    margin: 0px 0px 12px;
+    padding: 8px;
+}
+
+.btn {
+    background-color: #f07813;
+    color: #fff;
+    border: 1px solid #f07813;
+    box-shadow: 1px 1px 5px #000;
+    transition: ease-in 0.2s;
+    margin-top: 2px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+    .btn:hover {
+        background-color: #fff;
+        color: #f07813;
+    }

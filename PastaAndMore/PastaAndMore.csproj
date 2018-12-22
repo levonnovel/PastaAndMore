@@ -97,6 +97,7 @@
     <Content Include="Content\images\bg2.jpg" />
     <Content Include="Content\images\bg3.jpg" />
     <Content Include="Content\images\Butternut-Squash-and-Spinac.jpg" />
+    <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\Grilled-Chicken-Caesar-Salad-550x393.jpg" />
     <Content Include="Content\images\img1.jpg" />
     <Content Include="Content\images\img2.jpg" />
@@ -104,8 +105,10 @@
     <Content Include="Content\images\lemongarlicparmesamshrimppasta4-667x1000.jpg" />
     <Content Include="Content\images\Lobster-Pasta-Salad-by-Movita-Beaucoup-1.jpg" />
     <Content Include="Content\images\Rigatoni-Bolognese_ExtraLarge1000_ID-1102297.jpg" />
+    <Content Include="Content\MyStyles\adminIndexStyle.css" />
     <Content Include="Content\MyStyles\menuStyle.css" />
     <Content Include="Content\MyStyles\pageStyle.css" />
+    <Content Include="Content\MyStyles\adminStyle.css" />
     <Content Include="Content\MyStyles\styleB.css" />
     <Content Include="Content\MyStyles\styleMenu.css" />
     <Content Include="Content\Site.css" />
@@ -219,7 +222,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49878</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49878/</IISUrl>
+          <IISUrl>http://localhost:1523/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
