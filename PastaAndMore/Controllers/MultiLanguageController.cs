@@ -5,13 +5,19 @@ using System.Linq;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
+using PastaAndMore.Models;
 
 namespace PastaAndMore.Controllers
 {
 	public class MultiLanguageController : Controller
 	{
-		// GET: MultiLanguage
-		public ActionResult Index()
+
+        public MultiLanguageController()
+        {
+            ViewData["CatList"] = Category.GetAllCategories();
+        }
+        // GET: MultiLanguage
+        public ActionResult Index()
 		{
 			return View();
 		}

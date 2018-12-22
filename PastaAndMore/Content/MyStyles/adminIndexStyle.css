@@ -1,0 +1,69 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+
+.containerNav {
+    padding: 0 30px;
+}
+
+.container-menu .panel {
+    border: 1px solid #f07813;
+    border-radius: 0 !important;
+    transition: box-shadow 0.5s;
+}
+
+    .container-menu .panel:hover {
+        box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+    }
+
+.panel-footer .btn:hover, .container-about .submit-button .btn:hover {
+    border: 1px solid #f07813;
+    background-color: #fff !important;
+    color: #f07813 !important;
+}
+
+.container-menu .panel-heading {
+    background-color: #f07813 !important;
+    border-radius: 0;
+}
+
+.container-menu .panel-footer {
+    background-color: white !important;
+}
+
+    .container-menu .panel-footer h3 {
+        font-size: 20px;
+    }
+
+    .container-menu .panel-footer h4 {
+        color: #000;
+        font-size: 14px;
+    }
+
+    .container-menu .panel-footer .btn, .container-contact .submit-button .btn {
+        margin: 5px 0;
+        background-color: #f07813;
+        color: #fff;
+    }
+
+
+.panel .inputPath {
+    width: 87%;
+    margin: 5px;
+}
+
+.panel-footer input {
+    width: 70%;
+}
+
+.panel-body textarea {
+    width: 87%;
+    resize: vertical;
+}
+
+.panel-footer h4, .panel-footer input {
+    font-family: 'PT Sans Narrow', sans-serif;
+}

@@ -2,119 +2,254 @@
 @model Tuple<List<PastaAndMore.Models.Category>, List<PastaAndMore.Models.Product>>
 
 @{
-	Layout = null;
+    Layout = null;
 }
 
 <!DOCTYPE html>
 
 <html>
 <head>
-	<meta name="viewport" content="width=device-width" />
-	<title>AdminPage</title>
-	<link href="~/Content/bootstrap.css" rel="stylesheet" />
-	<script src="~/Scripts/MyScripts/jquery-3.3.1.js"></script>
-	<script src="~/Scripts/MyScripts/AdminPage.js"></script>
+    <meta charset="utf-8" />
+    <meta name="language" content="English">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Dosis|PT+Sans+Narrow" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/MyStyles/adminIndexStyle.css" rel="stylesheet" />
+    <script src="~/Scripts/MyScripts/jquery-3.3.1.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+
+    <script src="~/Scripts/MyScripts/AdminPage.js"></script>
+
+    <title>AdminPage</title>
+
 </head>
 <body>
-	<div>
-		<input type="text" id="productName" placeholder="Input Product Name" />
-		<input type="text" id="productDesc" placeholder="Input Product Description" />
-		<input type="number" id="productPrice" placeholder="Input Product Price" />
-		<input type="text" id="productImgPath" placeholder="Input Product Img Path" />
-		<select id="Cats">
-			@{
-				foreach (var cat in Model.Item1)
-				{
-					<option>@cat.Name</option>
-				}
-			}
-		</select>
-		<button id="AddProduct">Add</button>
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Pasta&More", "Index", "Home", new { @class = "navbar-brand" })
+                    @*<a class="navbar-brand" href="homeB.html"></a>*@
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Add a product</a></li>
+                        <li><a href="#">Add a category</a></li>
+                        <li><a href="#">Go to website</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-menu">
+        <div id="addProduct" class="container text-center container-addProduct">
+            <h2>Add a product</h2>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="panel panel-default text-center">
+                        <div class="panel-heading">
+                            <input type="text" id="productName" placeholder="Input Product Name" />
+                            <select id="Cats">
+                                <option value="" disabled selected>Type</option>
 
-		<div class="col-md-3 col-sm-6 col-xs-12 menu-elem">
-			<div class="panel panel-default text-center">
-				<div class="panel-heading">
-					<input type="text" />
-					<input type="text" />
-				</div>
-				<div class="panel-body">
-					<p><input type="text" /></p>
-				</div>
-				<div class="panel-footer">
-					<h4>L: <input type="text" /> AMD</h4>
-					<h5>M: <input type="text" /> AMD</h5>
-					<h6>S: <input type="text" /> AMD</h6>
-					<button class="btn btn-sm">See more</button>
-					<button class="btn btn-sm">Order</button>
-				</div>
-			</div>
-		</div>
+                                @{
+                                    foreach (var cat in Model.Item1)
+                                    {
+                                        <option>@cat.Name</option>
+                                    }
+                                }
+                            </select>
 
-	</div>
-	<div>
-		<table border="1">
-			@{
+                            <input type="text" id="productImgPath" class="inputPath" placeholder="Input Product Image Path" />
+                        </div>
+                        <div class="panel-body">
+                            <textarea id="productDesc" placeholder="Input Product Description"> </textarea>
+                        </div>
+                        <div class="panel-footer">
+                            <h4><label for="priceL">L:</label> <input type="text" id="priceL" placeholder="Price of a Large Portion" /> AMD</h4>
+                            <h4><label for="priceM">M:</label> <input type="text" id="priceM" placeholder="Price of a Medium Portion" /> AMD</h4>
+                            <h4><label for="priceS">S:</label> <input type="text" id="priceS" placeholder="Price of a Small Portion" /> AMD</h4>
+                            <div>
+                                <button class="btn-success" id="AddProduct">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="container">
+                        <div class="jumbotron">
 
-				foreach (var prod in Model.Item2)
-				{
-			<tr>
-				<td>@prod.ID</td>
-				<td contenteditable="true">@prod.Name</td>
-				<td contenteditable="true">@prod.Description</td>
-				<td contenteditable="true">@prod.Price</td>
-				<td contenteditable="true">@prod.ImgPath</td>
-				<td contenteditable="true">
+                            <table id="table_id" class="display">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" scope="col">Name</th>
+                                        <th class="text-center" scope="col">Description</th>
+                                        <th class="text-center" scope="col">Price</th>
+                                        <th class="text-center" scope="col">Image Path</th>
+                                        <th class="text-center" scope="col">Category</th>
+                                        <th class="text-center" scope="col">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
 
-					<select>
-						@foreach (var cat in Model.Item1)
-						{
-							if (prod.Cat.ID == cat.ID)
-							{
-								<option selected="selected">
-									@cat.Name
-								</option>
-							}
-							else
-							{
-								<option>
-									@cat.Name
-								</option>
+                                        foreach (var prod in Model.Item2)
+                                        {
 
-							}
-						}
-					</select>
 
-				</td>
-				<td><button class="updateProduct">save</button></td>
-				<td><button class="deleteProduct">delete</button></td>
-			</tr>
-				}
-			}
-		</table>
-	</div>
-	<div>
-		<input type="text" id="catName" placeholder="Input Category Name" />
-		<input type="text" id="catDesc" placeholder="Input Category Description" />
+                                            <tr>
 
-		<button id="AddCategory">Add</button>
-	</div>w
-	<div>
-		<table border="1">
-			@{
+                                                <td>@prod.ID</td>
+                                                <td contenteditable="true">@prod.Name</td>
+                                                <td contenteditable="true">@prod.Description</td>
+                                                <td contenteditable="true">@prod.Price</td>
+                                                <td contenteditable="true">@prod.ImgPath</td>
+                                                <td contenteditable="true">
 
-				foreach (var cat in Model.Item1)
-				{
-					<tr>
-						<td>@cat.ID</td>
-						<td contenteditable="true">@cat.Name</td>
-						<td contenteditable="true">@cat.Description</td>
-						<td><button class="updateCategory">save</button></td>
-						<td><button class="deleteCategory">delete</button></td>
-					</tr>
-				}
-			}
-		</table>
-	</div>
+                                                    <select>
+                                                        @foreach (var cat in Model.Item1)
+                                                        {
+                                                            if (prod.Cat.ID == cat.ID)
+                                                            {
+                                                                <option selected="selected">
+                                                                    @cat.Name
+                                                                </option>
+                                                            }
+                                                            else
+                                                            {
+                                                                <option>
+                                                                    @cat.Name
+                                                                </option>
 
+                                                            }
+                                                        }
+                                                    </select>
+
+
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div>
+
+                        <table border="1" class="table table-dark table-striped">
+
+                            <thead>
+                                <tr>
+                                    <th class="text-center" scope="col">Name</th>
+                                    <th class="text-center" scope="col">Description</th>
+                                    <th class="text-center" scope="col">Price</th>
+                                    <th class="text-center" scope="col">Image Path</th>
+                                    <th class="text-center" scope="col">Category</th>
+                                    <th class="text-center" scope="col">Save</th>
+                                    <th class="text-center" scope="col">Delete</th>
+                                    <th class="text-center" scope="col">ID</th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="pre-scrollable">
+                                            <table>
+                                                @{
+
+                                                    foreach (var prod in Model.Item2)
+                                                    {
+
+
+                                                        <tr>
+
+                                                            <td>@prod.ID</td>
+                                                            <td contenteditable="true">@prod.Name</td>
+                                                            <td contenteditable="true">@prod.Description</td>
+                                                            <td contenteditable="true">@prod.Price</td>
+                                                            <td contenteditable="true">@prod.ImgPath</td>
+                                                            <td contenteditable="true">
+
+                                                                <select>
+                                                                    @foreach (var cat in Model.Item1)
+                                                                    {
+                                                                        if (prod.Cat.ID == cat.ID)
+                                                                        {
+                                                                            <option selected="selected">
+                                                                                @cat.Name
+                                                                            </option>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <option>
+                                                                                @cat.Name
+                                                                            </option>
+
+                                                                        }
+                                                                    }
+                                                                </select>
+                                                            </td>
+                                                            <td><button class="updateProduct">save</button></td>
+                                                            <td><button class="deleteProduct">delete</button></td>
+                                                        </tr>
+                                                    }
+                                                }
+
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <input type="text" id="catName" placeholder="Input Category Name" />
+                        <input type="text" id="catDesc" placeholder="Input Category Description" />
+
+                        <button id="AddCategory">Add</button>
+                    </div>
+                    <div>
+                        <table border="1" class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Save</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+
+                            </thead>
+                            @{
+
+                                foreach (var cat in Model.Item1)
+                                {
+                                    <tr>
+                                        <td>@cat.ID</td>
+                                        <td contenteditable="true">@cat.Name</td>
+                                        <td contenteditable="true">@cat.Description</td>
+                                        <td><button class="updateCategory">save</button></td>
+                                        <td><button class="deleteCategory">delete</button></td>
+                                    </tr>
+                                }
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
