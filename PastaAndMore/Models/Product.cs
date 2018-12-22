@@ -22,14 +22,16 @@ namespace PastaAndMore.Models
 
 			using (SqlConnection conn = new SqlConnection(cs))
 			{
-				SqlCommand cmd = new SqlCommand("INSERT INTO Products VALUES(@name, @desc, @price, @cat_id); ", conn);
+				SqlCommand cmd = new SqlCommand("INSERT INTO Products VALUES(@name, @desc, @price, @imgPath, @cat_id); ", conn);
 				SqlParameter paramID = new SqlParameter("@name", p.Name);
 				SqlParameter paramDesc = new SqlParameter("@desc", p.Description);
 				SqlParameter paramPrice = new SqlParameter("@price", p.Price);
+				SqlParameter paramImgPath = new SqlParameter("@imgPath", p.ImgPath);
 				SqlParameter paramCatID = new SqlParameter("@cat_id", p.Cat.ID);
 				cmd.Parameters.Add(paramID);
 				cmd.Parameters.Add(paramDesc);
 				cmd.Parameters.Add(paramPrice);
+				cmd.Parameters.Add(paramImgPath);
 				cmd.Parameters.Add(paramCatID);
 
 				conn.Open();

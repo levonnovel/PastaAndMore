@@ -61,15 +61,6 @@ namespace PastaAndMore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AM.
-        /// </summary>
-        public static string AM {
-            get {
-                return ResourceManager.GetString("AM", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Burgers.
         /// </summary>
         public static string Burgers {
@@ -88,29 +79,11 @@ namespace PastaAndMore.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EN.
-        /// </summary>
-        public static string EN {
-            get {
-                return ResourceManager.GetString("EN", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Pasta.
         /// </summary>
         public static string Pasta {
             get {
                 return ResourceManager.GetString("Pasta", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to RU.
-        /// </summary>
-        public static string RU {
-            get {
-                return ResourceManager.GetString("RU", resourceCulture);
             }
         }
         

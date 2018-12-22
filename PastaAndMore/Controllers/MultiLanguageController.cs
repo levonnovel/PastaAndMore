@@ -1,32 +1,39 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Resources;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
+using PastaAndMore.Models;
 
 namespace PastaAndMore.Controllers
 {
-	public class MultiLanguageController : Controller
+	public class MultiLanguageController : BaseController
 	{
+	
 		// GET: MultiLanguage
 		public ActionResult Index()
 		{
 			return View();
 		}
 
-		public ActionResult Change(string Lang)
+		public ActionResult Change(string lang)
 		{
-			if(Lang != null)
+			if(lang != null)
 			{
-				Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(Lang);
-				Thread.CurrentThread.CurrentUICulture = new CultureInfo(Lang);
+				Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(lang);
+				Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
 			}
 
 			HttpCookie cookie = new HttpCookie("Language");
-			cookie.Value = Lang;
+			cookie.Value = lang;
 			Response.Cookies.Add(cookie);
+
+
+			SetResource();
 
 			return View("~/Views/Home/Index.cshtml");
 		}

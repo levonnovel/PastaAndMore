@@ -1,19 +1,23 @@
 ﻿using PastaAndMore.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
-
+	
 namespace PastaAndMore.Controllers
 {
-	public class HomeController : Controller
+	public class HomeController : BaseController
 	{
 
 		public HomeController()
 		{
-			ViewData["CatList"] = Category.GetAllCategories();
+			SetResource();
 		}
 		// GET: Home
 		public ActionResult Index()

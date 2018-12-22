@@ -1,22 +1,22 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="language" content="English">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Dosis|PT+Sans+Narrow" rel="stylesheet">
-    <link href="~/Content/MyStyles/styleB.css" rel="stylesheet" type="text/css">
-    <link href="~/Content/MyStyles/styleMenu.css" rel="stylesheet" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="~/Scripts/MyScripts/HtmlPageScrolling.js"></script>"
-    @*<script src="~/Scripts/MyScripts/ImageModals.js"></script>*@
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+	<meta charset="utf-8" />
+	<meta name="language" content="English">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>@ViewBag.Title - My ASP.NET Application</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Dosis|PT+Sans+Narrow" rel="stylesheet">
+	<link href="~/Content/MyStyles/styleB.css" rel="stylesheet" type="text/css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="~/Scripts/MyScripts/HtmlPageScrolling.js"></script>"
+	@*<script src="~/Scripts/MyScripts/ImageModals.js"></script>*@
+	<script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 	<header>
@@ -40,21 +40,23 @@
 							</a>
 							<ul class="dropdown-menu">
 								@{
+
 									var cats = ViewBag.Catlist;
 									foreach (var el in cats)
 									{
-										<li>@Html.ActionLink((string)el.Name, "Menu", "Home", new { cat = (string)el.Name }, null) </li>
+
+										<li>@Html.ActionLink((string)el.Value, "Menu", "Home", new { cat = (string)el.Key }, null) </li>
 									}
 								}
 
 								@*<li>@Html.ActionLink(@PastaAndMore.Resources.MenuText.Salads, "Menu", "Home", new { cat = "Salads" }, null) </li>
-								<li>@Html.ActionLink("Burgers", "Menu", "Home", new { cat = "Burgers" }, null) </li>
-								<li>@Html.ActionLink("Pasta", "Menu", "Home", new { cat = "Pasta" }, null) </li>
-								<li>@Html.ActionLink("Drinks", "Menu", "Home", new { cat = "Drinks" }, null) </li>
-								<li>@Html.ActionLink("Souces", "Menu", "Home", new { cat = "Souces" }, null) </li>
-								<li>@Html.ActionLink("Souces", "Menu", "Home", new { cat = "Souces" }, null) </li>
-								<li>@Html.ActionLink("Soups", "Menu", "Home", new { cat = "Soups" }, null) </li>
-								<li>@Html.ActionLink("Pizza", "Menu", "Home", new { cat = "Pizza" }, null) </li>*@
+									<li>@Html.ActionLink("Burgers", "Menu", "Home", new { cat = "Burgers" }, null) </li>
+									<li>@Html.ActionLink("Pasta", "Menu", "Home", new { cat = "Pasta" }, null) </li>
+									<li>@Html.ActionLink("Drinks", "Menu", "Home", new { cat = "Drinks" }, null) </li>
+									<li>@Html.ActionLink("Souces", "Menu", "Home", new { cat = "Souces" }, null) </li>
+									<li>@Html.ActionLink("Souces", "Menu", "Home", new { cat = "Souces" }, null) </li>
+									<li>@Html.ActionLink("Soups", "Menu", "Home", new { cat = "Soups" }, null) </li>
+									<li>@Html.ActionLink("Pizza", "Menu", "Home", new { cat = "Pizza" }, null) </li>*@
 
 							</ul>
 						<li><a href="#gallery">@PastaAndMore.Resources.HomeText.Gallery</a></li>
@@ -62,9 +64,9 @@
 						<li><a href="#contacts">Contacts</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li class="active">@Html.ActionLink("EN", "Change", "MultiLanguage", new { LanguageAbbr = "en" }, null)</li>
-						<li>@Html.ActionLink("RU", "Change", "MultiLanguage", new { LanguageAbbr = "ru" }, null) </li>
-						<li>@Html.ActionLink("AM", "Change", "MultiLanguage", new { LanguageAbbr = "hy" }, null)</li>
+						<li class="active">@Html.ActionLink("EN", "Change", "MultiLanguage", new { lang = "en" }, null)</li>
+						<li>@Html.ActionLink("RU", "Change", "MultiLanguage", new { lang = "ru" }, null) </li>
+						<li>@Html.ActionLink("AM", "Change", "MultiLanguage", new { lang = "hy" }, null)</li>
 					</ul>
 				</div>
 			</div>
@@ -72,62 +74,62 @@
 	</header>
 
 	@*<header>
-		<ul class="menuList">
-			<li><a href="#" class="firstListItem isActive">Home</a></li>
-			<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.About, "About", "Home")</li>
-			<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Gallery, "Gallery", "Home")</li>
-			<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Directions, "Directions", "Home")</li>
-			<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Menu, "Menu", "Home")</li>
-			<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.About, "About", "Home")</li>
-			<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Contact, "Contact", "Home")</li>
-			<li class="menuBack lastListItem">@Html.ActionLink("EN", "Change", "MultiLanguage", new { LanguageAbbr = "en" }, null)</li>
-			<li class="menuBack lastListItem">@Html.ActionLink("RU", "Change", "MultiLanguage", new { LanguageAbbr = "ru" }, null) </li>
-			<li class="menuBack lastListItem">@Html.ActionLink("AM", "Change", "MultiLanguage", new { LanguageAbbr = "hy" }, null)</li>
-			<li class="menuBack"><a href="#" class="isActive">EN</a></li>
-		</ul>
-	</header>*@
+			<ul class="menuList">
+				<li><a href="#" class="firstListItem isActive">Home</a></li>
+				<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.About, "About", "Home")</li>
+				<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Gallery, "Gallery", "Home")</li>
+				<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Directions, "Directions", "Home")</li>
+				<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Menu, "Menu", "Home")</li>
+				<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.About, "About", "Home")</li>
+				<li>@Html.ActionLink(PastaAndMore.Resources.HomeText.Contact, "Contact", "Home")</li>
+				<li class="menuBack lastListItem">@Html.ActionLink("EN", "Change", "MultiLanguage", new { LanguageAbbr = "en" }, null)</li>
+				<li class="menuBack lastListItem">@Html.ActionLink("RU", "Change", "MultiLanguage", new { LanguageAbbr = "ru" }, null) </li>
+				<li class="menuBack lastListItem">@Html.ActionLink("AM", "Change", "MultiLanguage", new { LanguageAbbr = "hy" }, null)</li>
+				<li class="menuBack"><a href="#" class="isActive">EN</a></li>
+			</ul>
+		</header>*@
 
-    <div class="container body-content body-container" style="width: 100%; padding: 0; margin: 0">
-        @RenderBody()
-    </div>
-    <footer class="container-fluid text-center">
-        <a href="#myPage" title="To Top">
-            <span class="glyphicon glyphicon-chevron-up"></span>
-        </a>
-        <div class="container-fluid text-center">
-            <div class="row">
-                <div class="col-md-3 col-xs-12">
-                    <span class="glyphicon glyphicon-earphone logo-small"></span>
-                    <h4>Contact Us</h4>
-                    <p>+37410502520</p>
-                    <p>+37455202520</p>
-                </div>
-                <div class="col-md-3 col-xs-12">
-                    <span class="glyphicon glyphicon-time logo-small"></span>
-                    <h4>Working Hours</h4>
-                    <p>Monday-Friday: 08:00-22:00</p>
-                    <p>Saturday-Sunday: 08:00-00:00</p>
-                </div>
-                <div class="col-md-3 col-xs-12">
-                    <span class="glyphicon glyphicon-shopping-cart logo-small"></span>
-                    <h4>Delivery</h4>
-                    <p>+37410502520</p>
-                </div>
-                <div class="row">
-                    <div class="col-md-3 col-xs-12">
-                        <span class="glyphicon glyphicon-comment logo-small"></span>
-                        <h4>Follow us on</h4>
-                        <a href="#" class="fa fa-facebook"></a>
-                        <a href="#" class="fa fa-twitter"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+	<div class="container body-content body-container" style="width: 100%; padding: 0; margin: 0">
+		@RenderBody()
+	</div>
+	<footer class="container-fluid text-center">
+		<a href="#myPage" title="To Top">
+			<span class="glyphicon glyphicon-chevron-up"></span>
+		</a>
+		<div class="container-fluid text-center">
+			<div class="row">
+				<div class="col-md-3 col-xs-12">
+					<span class="glyphicon glyphicon-earphone logo-small"></span>
+					<h4>Contact Us</h4>
+					<p>+37410502520</p>
+					<p>+37455202520</p>
+				</div>
+				<div class="col-md-3 col-xs-12">
+					<span class="glyphicon glyphicon-time logo-small"></span>
+					<h4>Working Hours</h4>
+					<p>Monday-Friday: 08:00-22:00</p>
+					<p>Saturday-Sunday: 08:00-00:00</p>
+				</div>
+				<div class="col-md-3 col-xs-12">
+					<span class="glyphicon glyphicon-shopping-cart logo-small"></span>
+					<h4>Delivery</h4>
+					<p>+37410502520</p>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-xs-12">
+						<span class="glyphicon glyphicon-comment logo-small"></span>
+						<h4>Follow us on</h4>
+						<a href="#" class="fa fa-facebook"></a>
+						<a href="#" class="fa fa-twitter"></a>
+					</div>
+				</div>
+			</div>
+		</div>
 
-        <p class="copyright-footer">Copyright: Levon^2</p>
-    </footer>
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+		<p class="copyright-footer">Copyright: Levon^2</p>
+	</footer>
+	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+	<script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 
 </html>

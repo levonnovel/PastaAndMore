@@ -12,10 +12,33 @@
 	<meta name="viewport" content="width=device-width" />
 	<title>AdminPage</title>
 	<link href="~/Content/bootstrap.css" rel="stylesheet" />
+	<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+
 	<script src="~/Scripts/MyScripts/jquery-3.3.1.js"></script>
 	<script src="~/Scripts/MyScripts/AdminPage.js"></script>
+	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
 </head>
 <body>
+	<div class="col-md-3 col-sm-6 col-xs-12 menu-elem">
+		<div class="panel panel-default text-center">
+			<div class="panel-heading">
+				<input type="text" />
+				<input type="text" />
+			</div>
+			<div class="panel-body">
+				<p><input type="text" /></p>
+			</div>
+			<div class="panel-footer">
+				<h4>L: <input type="text" /> AMD</h4>
+				<h5>M: <input type="text" /> AMD</h5>
+				<h6>S: <input type="text" /> AMD</h6>
+				<button class="btn btn-sm">See more</button>
+				<button class="btn btn-sm">Order</button>
+			</div>
+		</div>
+	</div>
+
 	<div>
 		<input type="text" id="productName" placeholder="Input Product Name" />
 		<input type="text" id="productDesc" placeholder="Input Product Description" />
@@ -31,73 +54,87 @@
 		</select>
 		<button id="AddProduct">Add</button>
 
-		<div class="col-md-3 col-sm-6 col-xs-12 menu-elem">
-			<div class="panel panel-default text-center">
-				<div class="panel-heading">
-					<input type="text" />
-					<input type="text" />
-				</div>
-				<div class="panel-body">
-					<p><input type="text" /></p>
-				</div>
-				<div class="panel-footer">
-					<h4>L: <input type="text" /> AMD</h4>
-					<h5>M: <input type="text" /> AMD</h5>
-					<h6>S: <input type="text" /> AMD</h6>
-					<button class="btn btn-sm">See more</button>
-					<button class="btn btn-sm">Order</button>
-				</div>
-			</div>
-		</div>
 
 	</div>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
 	<div>
-		<table border="1">
-			@{
+		<table id="productsTable" class="display" border="1">
+			<thead>
+				<tr>
+					<th>Column 1</th>
+					<th>Column 2</th>
+					<th>Column 3</th>
+					<th>Column 4</th>
+					<th>Column 5</th>
+					<th>Column 6</th>
+					<th>Column 7</th>
+					<th style="visibility:hidden">Column 1</th>
 
-				foreach (var prod in Model.Item2)
-				{
-			<tr>
-				<td>@prod.ID</td>
-				<td contenteditable="true">@prod.Name</td>
-				<td contenteditable="true">@prod.Description</td>
-				<td contenteditable="true">@prod.Price</td>
-				<td contenteditable="true">@prod.ImgPath</td>
-				<td contenteditable="true">
+				</tr>
+			</thead>
+			<tbody>
+				@{
 
-					<select>
-						@foreach (var cat in Model.Item1)
-						{
-							if (prod.Cat.ID == cat.ID)
-							{
-								<option selected="selected">
-									@cat.Name
-								</option>
-							}
-							else
-							{
-								<option>
-									@cat.Name
-								</option>
+					foreach (var prod in Model.Item2)
+					{
 
-							}
-						}
-					</select>
+						<tr>
+							<td><input type="checkbox" class="selectedProducts" /></td>
+							<td style="display: none;">@prod.ID</td>
+							<td contenteditable="true">@prod.Name</td>
+							<td contenteditable="true">@prod.Description</td>
+							<td contenteditable="true">@prod.Price</td>
+							<td contenteditable="true">@prod.ImgPath</td>
+							<td>
+								<select>
+									@foreach (var cat in Model.Item1)
+									{
+										if (prod.Cat.ID == cat.ID)
+										{
+											<option selected="selected">
+												@cat.Name
+											</option>
+										}
+										else
+										{
+											<option>
+												@cat.Name
+											</option>
 
-				</td>
-				<td><button class="updateProduct">save</button></td>
-				<td><button class="deleteProduct">delete</button></td>
-			</tr>
+										}
+									}
+								</select>
+
+							</td>
+							<td><button class="updateProduct">save</button></td>
+						</tr>
+					}
+
 				}
-			}
+			</tbody>
 		</table>
+		<div><button id="deleteProducts">delete</button></div>
+
 	</div>
+	<br />
+	<br />
+	<br />
+	<br />
+
 	<div>
 		<input type="text" id="catName" placeholder="Input Category Name" />
 		<input type="text" id="catDesc" placeholder="Input Category Description" />
 
 		<button id="AddCategory">Add</button>
-	</div>w
+	</div>
 	<div>
 		<table border="1">
 			@{
@@ -115,6 +152,9 @@
 			}
 		</table>
 	</div>
+
+
+
 
 </body>
 </html>

@@ -107,6 +107,7 @@
     <Content Include="Content\MyStyles\menuStyle.css" />
     <Content Include="Content\MyStyles\pageStyle.css" />
     <Content Include="Content\MyStyles\styleB.css" />
+    <Content Include="Content\MyStyles\styleMenu.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -116,6 +117,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\MyScripts\AdminLogin.js" />
     <Content Include="Scripts\MyScripts\AdminPage.js" />
     <Content Include="Scripts\MyScripts\jquery-3.3.1.js" />
     <Content Include="Web.config">
@@ -125,6 +127,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MultiLanguageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -179,8 +182,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\MenuText.hy.resx" />
     <EmbeddedResource Include="Resources\MenuText.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MenuText.Designer.cs</LastGenOutput>
@@ -197,6 +202,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>HomeText.ru.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\MenuText.ru.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -33,7 +33,7 @@ namespace PastaAndMore.Controllers
 			if (Admin.CheckAdmin(login, password))
 			{
 				Session["login"] = login;
-				Session.Timeout = 1;
+				//Session.Timeout = 1;
 				return Json(new
 				{
 					success = true,
@@ -71,10 +71,14 @@ namespace PastaAndMore.Controllers
 				responseText = "The product has been succesfully changed"
 			});
 		}
-		public JsonResult DeleteProduct(string id)
+		public JsonResult DeleteProducts(int[] arr)
 		{
 
-			Product.Delete(Convert.ToInt32(id));
+			foreach(int el in arr)
+			{
+				Product.Delete(el);
+			}
+			//Product.Delete(Convert.ToInt32(id));
 			return Json(new
 			{
 				success = true,
