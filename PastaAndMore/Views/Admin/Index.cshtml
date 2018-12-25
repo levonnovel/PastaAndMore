@@ -2,7 +2,7 @@
 @model Tuple<List<PastaAndMore.Models.Category>, List<PastaAndMore.Models.Product>>
 
 @{
-    Layout = null;
+	Layout = null;
 }
 
 <!DOCTYPE html>
@@ -20,145 +20,146 @@
 
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Pasta&More", "Index", "Home", new { @class = "navbar-brand" })
-                    @*<a class="navbar-brand" href="homeB.html"></a>*@
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#">Add a product</a></li>
-                        <li><a href="#">Add a category</a></li>
-                        <li><a href="#">Go to website</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container-menu">
-        <div id="addProduct" class="container text-center container-addProduct">
-            <h2>Add a product</h2>
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="panel panel-default text-center">
-                        <div class="panel-heading">
-                            <input type="text" id="productName" placeholder="Input Product Name" />
-                            <select id="Cats">
-                                <option value="" disabled selected>Type</option>
+	<header>
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					@Html.ActionLink("Pasta&More", "Index", "Home", new { @class = "navbar-brand" })
+					@*<a class="navbar-brand" href="homeB.html"></a>*@
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav">
+						<li><a href="#">Add a product</a></li>
+						<li><a href="#">Add a category</a></li>
+						<li><a href="#">Go to website</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div class="container-menu">
+		<div id="addProduct" class="container text-center container-addProduct">
+			<h2>Add a product</h2>
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="panel panel-default text-center">
+						<div class="panel-heading">
+							<input type="text" id="productName" placeholder="Input Product Name" />
+							<select id="Cats">
+								<option value="" disabled selected>Type</option>
 
-                                @{
-                                    foreach (var cat in Model.Item1)
-                                    {
-                                        <option>@cat.Name</option>
-                                    }
-                                }
-                            </select>
+								@{
+									foreach (var cat in Model.Item1)
+									{
+										<option>@cat.Name</option>
+									}
+								}
+							</select>
 
-                            <input type="text" id="productImgPath" class="inputPath" placeholder="Input Product Image Path" />
-                        </div>
-                        <div class="panel-body">
-                            <textarea id="productDesc" placeholder="Input Product Description"> </textarea>
-                        </div>
-                        <div class="panel-footer">
-                            <h4><label for="priceL">L:</label> <input type="text" id="priceL" placeholder="Price of a Large Portion" /> AMD</h4>
-                            <h4><label for="priceM">M:</label> <input type="text" id="priceM" placeholder="Price of a Medium Portion" /> AMD</h4>
-                            <h4><label for="priceS">S:</label> <input type="text" id="priceS" placeholder="Price of a Small Portion" /> AMD</h4>
-                            <div>
-                                <button class="btn-success" id="AddProduct">Add</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-9">
-                    <div class="container">
-                        <div class="jumbotron">
+							<input type="text" id="productImgPath" class="inputPath" placeholder="Input Product Image Path" />
+						</div>
+						<div class="panel-body">
+							<textarea id="productDesc" placeholder="Input Product Description"> </textarea>
+						</div>
+						<div class="panel-footer">
+							<h4><label for="priceL">L:</label> <input type="text" id="priceL" placeholder="Price of a Large Portion" /> AMD</h4>
+							<h4><label for="priceM">M:</label> <input type="text" id="priceM" placeholder="Price of a Medium Portion" /> AMD</h4>
+							<h4><label for="priceS">S:</label> <input type="text" id="priceS" placeholder="Price of a Small Portion" /> AMD</h4>
+							<div>
+								<button class="btn-success" id="AddProduct">Add</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-9">
+					<div class="container">
+						<div class="jumbotron">
 
-                            <table id="table_id" class="display">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center" scope="col">Name</th>
-                                        <th class="text-center" scope="col">Description</th>
-                                        <th class="text-center" scope="col">Price</th>
-                                        <th class="text-center" scope="col">Image Path</th>
-                                        <th class="text-center" scope="col">Category</th>
-                                        <th class="text-center" scope="col">Type</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @{
+							<table id="productsTable" class="display" border="1">
+								<thead>
+									<tr>
+										<th>Column 1</th>
+										<th>Column 2</th>
+										<th>Column 3</th>
+										<th>Column 4</th>
+										<th>Column 5</th>
+										<th>Column 6</th>
+										<th>Column 7</th>
+										<th style="visibility:hidden">Column 1</th>
 
-	</div>
-	<div>
-		<table border="1">
-			@{
+									</tr>
+								</thead>
+								<tbody>
+									@{
 
-				foreach (var prod in Model.Item2)
-				{
-			<tr>
-				<td>@prod.ID</td>
-				<td contenteditable="true">@prod.Name</td>
-				<td contenteditable="true">@prod.Description</td>
-				<td contenteditable="true">@prod.Price</td>
-				<td contenteditable="true">@prod.ImgPath</td>
-				<td contenteditable="true">
+										foreach (var prod in Model.Item2)
+										{
 
-					<select>
-						@foreach (var cat in Model.Item1)
-						{
-							if (prod.Cat.ID == cat.ID)
-							{
-								<option selected="selected">
-									@cat.Name
-								</option>
-							}
-							else
-							{
-								<option>
-									@cat.Name
-								</option>
+											<tr>
+												<td><input type="checkbox" class="selectedProducts" /></td>
+												<td style="display: none;">@prod.ID</td>
+												<td contenteditable="true">@prod.Name</td>
+												<td contenteditable="true">@prod.Description</td>
+												<td contenteditable="true">@prod.Price</td>
+												<td contenteditable="true">@prod.ImgPath</td>
+												<td>
+													<select>
+														@foreach (var cat in Model.Item1)
+														{
+															if (prod.Cat.ID == cat.ID)
+															{
+																<option selected="selected">
+																	@cat.Name
+																</option>
+															}
+															else
+															{
+																<option>
+																	@cat.Name
+																</option>
 
-							}
-						}
-					</select>
+															}
+														}
+													</select>
 
-				</td>
-				<td><button class="updateProduct">save</button></td>
-				<td><button class="deleteProduct">delete</button></td>
-			</tr>
-				}
-			}
-		</table>
-	</div>
-	<div>
-		<input type="text" id="catName" placeholder="Input Category Name" />
-		<input type="text" id="catDesc" placeholder="Input Category Description" />
+												</td>
+												<td><button class="updateProduct">save</button></td>
+											</tr>
+										}
 
-		<button id="AddCategory">Add</button>
-	</div>w
-	<div>
-		<table border="1">
-			@{
+									}
+								</tbody>
+							</table>
+							<div><button id="deleteProducts">delete</button></div>
+						</div>
+						<div>
+							<input type="text" id="catName" placeholder="Input Category Name" />
+							<input type="text" id="catDesc" placeholder="Input Category Description" />
 
-				foreach (var cat in Model.Item1)
-				{
-					<tr>
-						<td>@cat.ID</td>
-						<td contenteditable="true">@cat.Name</td>
-						<td contenteditable="true">@cat.Description</td>
-						<td><button class="updateCategory">save</button></td>
-						<td><button class="deleteCategory">delete</button></td>
-					</tr>
-				}
-			}
-		</table>
-	</div>
+							<button id="AddCategory">Add</button>
+						</div>
+						<div>
+							<table border="1">
+								@{
+
+									foreach (var cat in Model.Item1)
+									{
+										<tr>
+											<td>@cat.ID</td>
+											<td contenteditable="true">@cat.Name</td>
+											<td contenteditable="true">@cat.Description</td>
+											<td><button class="updateCategory">save</button></td>
+											<td><button class="deleteCategory">delete</button></td>
+										</tr>
+									}
+								}
+							</table>
+						</div>
 
 </body>
 </html>
