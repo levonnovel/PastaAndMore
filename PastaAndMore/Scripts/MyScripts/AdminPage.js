@@ -161,6 +161,16 @@
 		}
 	})
 
+	$('#checkAllProducts').on('click', (e) => {
+		console.log($(e.target).is(':checked'));
+		var checkBoxes = $('.selectedProducts');
+		if ($(e.target).is(':checked')) {
+			checkBoxes.prop('checked', true);
+		} else {
+			checkBoxes.prop('checked', false);
+		}
+	})
+
 	$('.updateCategory').on('click', (e) => {
 		var product = $(e.target).parent().parent().children();
 		var id = $(product[0]).text();
