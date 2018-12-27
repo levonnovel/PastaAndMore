@@ -122,6 +122,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\MyScripts\AdminLogin.js" />
     <Content Include="Scripts\MyScripts\AdminPage.js" />
+    <Content Include="Scripts\MyScripts\HtmlPageScrolling.js" />
+    <Content Include="Scripts\MyScripts\ImageModals.js" />
     <Content Include="Scripts\MyScripts\jquery-3.3.1.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
