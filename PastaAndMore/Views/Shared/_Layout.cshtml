@@ -31,44 +31,73 @@
 					@Html.ActionLink("Pasta&More", "Index", "Home", new { @class = "navbar-brand" })
 					@*<a class="navbar-brand" href="homeB.html"></a>*@
 				</div>
-				<div class="collapse navbar-collapse" id="myNavbar">
-					<ul class="nav navbar-nav">
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#menu">
-								Menu
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu">
-								@{
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#menu">
+                                Menu
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                @{
 
-									var cats = ViewBag.Catlist;
-									foreach (var el in cats)
-									{
+                    var cats = ViewBag.Catlist;
+                    foreach (var el in cats)
+                    {
 
-										<li>@Html.ActionLink((string)el.Value, "Menu", "Home", new { cat = (string)el.Key }, null) </li>
-									}
-								}
+                        <li>@Html.ActionLink((string)el.Value, "Menu", "Home", new { cat = (string)el.Key }, null) </li>
+    }
+                                }
 
-								@*<li>@Html.ActionLink(@PastaAndMore.Resources.MenuText.Salads, "Menu", "Home", new { cat = "Salads" }, null) </li>
-									<li>@Html.ActionLink("Burgers", "Menu", "Home", new { cat = "Burgers" }, null) </li>
-									<li>@Html.ActionLink("Pasta", "Menu", "Home", new { cat = "Pasta" }, null) </li>
-									<li>@Html.ActionLink("Drinks", "Menu", "Home", new { cat = "Drinks" }, null) </li>
-									<li>@Html.ActionLink("Souces", "Menu", "Home", new { cat = "Souces" }, null) </li>
-									<li>@Html.ActionLink("Souces", "Menu", "Home", new { cat = "Souces" }, null) </li>
-									<li>@Html.ActionLink("Soups", "Menu", "Home", new { cat = "Soups" }, null) </li>
-									<li>@Html.ActionLink("Pizza", "Menu", "Home", new { cat = "Pizza" }, null) </li>*@
+                                @*<li>@Html.ActionLink(@PastaAndMore.Resources.MenuText.Salads, "Menu", "Home", new { cat = "Salads" }, null) </li>
+                    <li>@Html.ActionLink("Burgers", "Menu", "Home", new { cat = "Burgers" }, null) </li>
+                    <li>@Html.ActionLink("Pasta", "Menu", "Home", new { cat = "Pasta" }, null) </li>
+                    <li>@Html.ActionLink("Drinks", "Menu", "Home", new { cat = "Drinks" }, null) </li>
+                    <li>@Html.ActionLink("Souces", "Menu", "Home", new { cat = "Souces" }, null) </li>
+                    <li>@Html.ActionLink("Souces", "Menu", "Home", new { cat = "Souces" }, null) </li>
+                    <li>@Html.ActionLink("Soups", "Menu", "Home", new { cat = "Soups" }, null) </li>
+                    <li>@Html.ActionLink("Pizza", "Menu", "Home", new { cat = "Pizza" }, null) </li>*@
 
-							</ul>
-						<li><a href="#gallery">@PastaAndMore.Resources.HomeText.Gallery</a></li>
-						<li><a href="#about">@PastaAndMore.Resources.HomeText.About</a></li>
-						<li><a href="#contacts">Contacts</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li class="active">@Html.ActionLink("EN", "Change", "MultiLanguage", new { lang = "en" }, null)</li>
-						<li>@Html.ActionLink("RU", "Change", "MultiLanguage", new { lang = "ru" }, null) </li>
-						<li>@Html.ActionLink("AM", "Change", "MultiLanguage", new { lang = "hy" }, null)</li>
-					</ul>
-				</div>
+                            </ul>
+                        <li><a href="#gallery">@PastaAndMore.Resources.HomeText.Gallery</a></li>
+                        <li><a href="#about">@PastaAndMore.Resources.HomeText.About</a></li>
+                        <li><a href="#contacts">Contacts</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                Language
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="active">@Html.ActionLink("EN", "Change", "MultiLanguage", new { lang = "en" }, null)</li>
+                                <li>@Html.ActionLink("RU", "Change", "MultiLanguage", new { lang = "ru" }, null) </li>
+                                <li>@Html.ActionLink("AM", "Change", "MultiLanguage", new { lang = "hy" }, null)</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown">
+                                Currency
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="active"><span class="flag-icon flag-icon-gr"></span><a href="#">AMD</a></li>
+                                <li><a href="#">RUR</a></li>
+                                <li><a href="#">EUR</a></li>
+                                <li><a href="#">USD</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    @*<li class="active">@Html.ActionLink("EN", "Change", "MultiLanguage", new { lang = "en" }, null)</li>
+            <li>@Html.ActionLink("RU", "Change", "MultiLanguage", new { lang = "ru" }, null) </li>
+            <li>@Html.ActionLink("AM", "Change", "MultiLanguage", new { lang = "hy" }, null)</li>
+        </ul>*@
+                </div>
 			</div>
 		</nav>
 	</header>
