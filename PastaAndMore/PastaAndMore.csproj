@@ -104,6 +104,9 @@
     <Content Include="Content\images\img3.jpg" />
     <Content Include="Content\images\lemongarlicparmesamshrimppasta4-667x1000.jpg" />
     <Content Include="Content\images\Lobster-Pasta-Salad-by-Movita-Beaucoup-1.jpg" />
+    <Content Include="Content\images\parallaxAbout.png" />
+    <Content Include="Content\images\parallaxFooter.png" />
+    <Content Include="Content\images\parallaxPricing.png" />
     <Content Include="Content\images\Rigatoni-Bolognese_ExtraLarge1000_ID-1102297.jpg" />
     <Content Include="Content\MyStyles\adminIndexStyle.css" />
     <Content Include="Content\MyStyles\menuStyle.css" />

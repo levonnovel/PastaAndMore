@@ -5,108 +5,116 @@ html, body {
     /*font-family: 'Noto Sans', sans-serif;*/
     font-family: 'PT Sans Narrow', sans-serif;
     /*font-family: 'Dosis', sans-serif;*/
-    background-color: #b4adb6;
-
+    background-color: #fff;
 }
 
 .body-container {
     width: 100%;
     margin-top: 30px !important;
-
 }
 
 header {
-  padding-left: 0;
-  padding-right: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .containerNav {
-  padding: 0 30px;
+    padding: 0 30px;
 }
 
 .bg-grey {
-  background-color: #f6f6f6;
+    background-color: #f6f6f6;
 }
 
 .logo-small {
-  color: #f07813;
-  font-size: 50px;
+    color: #f07813;
+    font-size: 50px;
 }
+
 .logo {
-  color: #f07813;
-  font-size: 200px;
+    color: #f07813;
+    font-size: 200px;
 }
+
 .thumbnail {
-  padding: 0 0 0 0;
-  border: none;
-  border-radius: 0;
+    padding: 0 0 0 0;
+    border: none;
+    border-radius: 0;
 }
 
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
-  width: 100%;
+    width: 100%;
 }
 
 .carousel-caption h3 {
-  text-align:center;
-  font-size: 36px;
-  margin-bottom: 15px; 
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 15px;
 }
 
 .carousel-caption a {
-  color: #fff;
-  text-decoration: none;
+    color: #fff;
+    text-decoration: none;
 }
 
-.carousel-caption a:hover {
-  color: #f07813;
-  font-weight: bold;
-  text-decoration: none;
-}
+    .carousel-caption a:hover {
+        color: #f07813;
+        font-weight: bold;
+        text-decoration: none;
+    }
 
 .item h4 {
-  font-size: 19px;
-  line-height: 1.375em;
-  font-weight: 400;
-  font-style: italic;
-  margin: 70px 0;
+    font-size: 19px;
+    line-height: 1.375em;
+    font-weight: 400;
+    font-style: italic;
+    margin: 70px 0;
 }
+
 .item span {
-  font-style: normal;
+    font-style: normal;
 }
+
 .container-menu .panel {
-  border: 1px solid #f07813; 
-  border-radius: 0 !important;
-  transition: box-shadow 0.5s;
+    border: 1px solid #f07813;
+    border-radius: 0 !important;
+    transition: box-shadow 0.5s;
 }
-.container-menu .panel:hover {
-  box-shadow: 5px 0px 40px rgba(0,0,0, .2);
-}
-.panel-footer .btn:hover, .container-about .submit-button .btn:hover{
+
+    .container-menu .panel:hover {
+        box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+    }
+
+.panel-footer .btn:hover, .container-about .submit-button .btn:hover {
     border: 1px solid #f07813;
     background-color: #fff !important;
     color: #f07813 !important;
 }
 
 .container-menu .panel-heading {
-  color: #fff !important;
-  background-color: #f07813 !important;
-  border-radius: 0;
+    color: #fff !important;
+    background-color: #f07813 !important;
+    border-radius: 0;
 }
+
 .container-menu .panel-footer {
-  background-color: white !important;
+    background-color: white !important;
 }
-.container-menu .panel-footer h3 {
-  font-size: 20px;
-}
-.container-menu .panel-footer h4 {
-  color: #000;
-  font-size: 14px;
-}
-.container-menu .panel-footer .btn, .container-contact .submit-button .btn {
-  margin: 5px 0;
-  background-color: #f07813;
-  color: #fff;
-}
+
+    .container-menu .panel-footer h3 {
+        font-size: 20px;
+    }
+
+    .container-menu .panel-footer h4 {
+        color: #000;
+        font-size: 14px;
+    }
+
+    .container-menu .panel-footer .btn, .container-contact .submit-button .btn {
+        margin: 5px 0;
+        background-color: #f07813;
+        color: #fff;
+    }
 
 .container-contact input, .container-contact textarea, .container-contact select {
     border: 1px solid #f07813;
@@ -133,41 +141,42 @@ header {
     border-radius: 0;
     font-family: 'PT Sans Narrow', sans-serif;
 }
-.navbar li a, .navbar .navbar-brand {
-  color: #f07813 !important;
-  transition: all 0.5s ease;
-}
 
-.navbar .navbar-brand {
-  border-right: 3px solid #f07813;
-}
+    .navbar li a, .navbar .navbar-brand {
+        color: #f07813 !important;
+        transition: all 0.5s ease;
+    }
+
+    .navbar .navbar-brand {
+        border-right: 3px solid #f07813;
+    }
 
 .navbar-nav li a:hover, .navbar-nav li.active a {
-  font-weight: bold;
+    font-weight: bold;
 }
+
 .navbar-default .navbar-toggle {
-  border-color: transparent;
-  color: #fff !important;
+    border-color: transparent;
+    color: #fff !important;
 }
 
 .dropdown:hover .dropdown-menu {
-  display: block;
-  margin-top: 0;
+    display: block;
+    margin-top: 0;
 }
 
 .dropdown-menu {
-  padding: 0 0 !important;
+    padding: 0 0 !important;
 }
 
-.dropdown-menu li a{
-  background-color: #f07813;
-  opacity: 0.9;
-  color: #fff !important;
-
-}
+    .dropdown-menu li a {
+        background-color: #f07813;
+        opacity: 0.9;
+        color: #fff !important;
+    }
 
 .container-menu .container-fluid {
-  padding: 0 30px;
+    padding: 0 30px;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -175,9 +184,9 @@ header {
 }
 
 .jumbotron {
-  background-color: #f4511e;
-  color: #fff;
-  padding: 100px 25px;
+    background-color: #f4511e;
+    color: #fff;
+    padding: 100px 25px;
 }
 
 .panel-heading h1 {
@@ -187,62 +196,64 @@ header {
 }
 
 .dropdown-menu li:hover, .dropdown-menu li a:hover, .dropdown-menu li.active a {
-  color: #f07813 !important;
-  font-weight: bold;
-  background-color: transparent !important;
+    color: #f07813 !important;
+    font-weight: bold;
+    background-color: transparent !important;
 }
 
 footer h4 {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 footer .glyphicon {
-  font-size: 20px;
-  margin-bottom: 20px;
-  color: #f07813;
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #f07813;
 }
 
 footer .container-fluid {
-  padding: 20px 20px;
+    padding: 20px 20px;
 }
 
 .fa {
-  padding-top: 8px;
-  font-size: 15px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  text-align: center;
-  text-decoration: none;
-  background: #f07813;
-  color: #fff;
+    padding-top: 8px;
+    font-size: 15px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    background: #f07813;
+    color: #fff;
 }
 
-.fa:hover {
-  opacity: 0.7;
-  text-decoration: none;
-  color: #fff;
-}
+    .fa:hover {
+        opacity: 0.7;
+        text-decoration: none;
+        color: #fff;
+    }
 
-.fa:visited, .fa:active {
-  text-decoration: none;
-  color: #fff;
-}
+    .fa:visited, .fa:active {
+        text-decoration: none;
+        color: #fff;
+    }
 
 @media screen and (max-width: 768px) {
-  .col-sm-4 {
-    text-align: center;
-    margin: 25px 0;
-  }
-  .btn-lg {
-    width: 100%;
-    margin-bottom: 35px;
-  }
+    .col-sm-4 {
+        text-align: center;
+        margin: 25px 0;
+    }
+
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
 }
+
 @media screen and (max-width: 480px) {
-  .logo {
-    font-size: 150px;
-  }
+    .logo {
+        font-size: 150px;
+    }
 }
 
 footer h4 {
@@ -337,7 +348,7 @@ footer p:not(.copyright-footer) {
     opacity: 1;
 }
 
-.close:hover, .close:focus {
+    .close:hover, .close:focus {
         color: #fff;
         text-decoration: none;
         cursor: pointer;
@@ -361,4 +372,54 @@ footer p:not(.copyright-footer) {
 
 footer {
     padding: 30px 30px;
+}
+
+.parallaxPricing, .parallaxAbout, .parallaxFooter {
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallaxPricing {
+    background-image: url('../images/parallaxPricing.png');
+    height: 420px;
+}
+
+.parallaxAbout {
+    background-image: url('../images/parallaxAbout.png');
+    height: 600px;
+}
+
+.parallaxFooter {
+    background-image: url('../images/parallaxFooter.png');
+    height: 40%;
+}
+
+    .parallaxPricing h2, .parallaxPricing h4, .parallaxAbout h2, .parallaxAbout h4, .parallaxAbout p, .parallaxFooter h2, .parallaxFooter h4, .parallaxFooter p {
+        color: #fff;
+    }
+
+    .parallaxFooter .glyphicon, .parallaxFooter .fa {
+        color: #fff;
+        background: none;
+    }
+    /* Turn off parallax scrolling for tablets and phones. Increase the pixels if needed */
+    @media only screen and (max-device-width: 1366px) {
+        .parallaxPricing, .parallaxAbout, .parallaxFooter {
+        background-attachment: scroll;
+    }
+}
+
+h4 {
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 50px;
+}
+
+p {
+    font-size: 20px;
 }
