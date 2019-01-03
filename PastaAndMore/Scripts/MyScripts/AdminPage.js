@@ -64,8 +64,6 @@
 		}
 	})
 
-	
-
 	$('.updateProduct').on('click', (e) => {
 		var product = $(e.target).parent().parent().children();
 
@@ -106,6 +104,47 @@
 		}
 	})
 
+	$('#deleteProducts').on('click', (e) => {
+		var products = $('.selectedProducts:checked');
+		console.log(products);
+		var arr = [],
+			product;
+		products.each((index, item) => {
+			console.log(item);
+			product = $(item).parent().parent().children();
+			console.log(product);
+			
+			arr.push(+ $(product[1]).text());
+		})
+		console.log(arr);
+		
+		var jsonObj = JSON.stringify({ arr: arr });
+
+		console.log(jsonObj);
+		$.datatype
+		$.ajax({
+			type: "post",
+			url: 'DeleteProducts',
+			data: { arr: arr },
+			contenttype: 'application/json; charset=utf-8',
+			datatype: "json",
+			success: successfunc,
+			error: errorfunc
+		});
+
+		function successfunc(data, status) {
+			alert(data.responseText);
+			if (data.success) {
+				location.reload();
+			}
+		}
+
+		function errorfunc(data, status) {
+			alert(data.responseText);
+			if (data.success) {
+				location.href = "/admin/index";
+			}
+		}
 	$('#deleteProducts').on('click', (e) => {
 		var products = $('.selectedProducts:checked');
 		console.log(products);
@@ -160,6 +199,58 @@
 			}
 		}
 	})
+	})
+
+	$('#updateProducts').on('click', (e) => {
+		var products = $('.selectedProducts:checked');
+		console.log(products);
+		var arr = [],
+			product;
+		products.each((index, item) => {
+			
+			console.log(item);
+			product = $(item).parent().parent().children();
+			console.log($(product[6]).children().val());
+			arr.push({
+				id: $(product[1]).text(),
+				name: $(product[2]).text(),
+				desc: $(product[3]).text(),
+				price: $(product[4]).text(),
+				imgPath: $(product[5]).text(),
+				catName: $(product[6]).children().val()
+			})
+		})
+		console.log(arr);
+	
+		var jsonObj = JSON.stringify({ arr: arr });
+
+		console.log(jsonObj);
+		$.datatype
+		$.ajax({
+			type: "post",
+			url: 'UpdateProducts',
+			data: { arr: arr },
+			contenttype: 'application/json; charset=utf-8',
+			datatype: "json",
+			success: successfunc,
+			error: errorfunc
+		});
+
+		function successfunc(data, status) {
+			alert(data.responseText);
+			if (data.success) {
+				location.reload();
+			}
+		}
+
+		function errorfunc(data, status) {
+			alert(data.responseText);
+			if (data.success) {
+				location.href = "/admin/index";
+			}
+		}
+	
+	})
 
 	$('#checkAllProducts').on('click', (e) => {
 		console.log($(e.target).is(':checked'));
@@ -171,12 +262,18 @@
 		}
 	})
 
+	$('.selectedProducts').on('click', () => {
+		if ($('.selectedProducts:checked').length == 0) {
+			$('#checkAllProducts').prop('checked', false);
+		}
+	})
+
 	$('.updateCategory').on('click', (e) => {
 		var product = $(e.target).parent().parent().children();
 		var id = $(product[0]).text();
 		var name = $(product[1]).text();
 		var desc = $(product[2]).text();
-		var obj = { id: id, name: name, desc: desc };
+		var obj = { id: +id, name: name, description: desc };
 		var jsonObj = JSON.stringify(obj);
 		console.log(jsonObj);
 
@@ -241,6 +338,22 @@
 			}
 		}
 	})
+
+	$('td[contenteditable="true"]').on('focus', function () {
+		before = $(this).html();
+	}).on('blur keyup paste', function () {
+		if (before != $(this).html()) {
+			//$(this).trigger('change');
+			//console.log($($(this).parent().children()[0].firstChild));
+			$($(this).parent().children()[0].firstChild).prop('checked', true);
+		}
+	});
+
+	$('#table_id select').on('change', function (e) {
+		console.log($(e.target).parent().parent().children());
+		$($(e.target).parent().parent().children()[0].firstChild).prop('checked', true);
+	})
+
 })
 
 $(document).ready(function () {

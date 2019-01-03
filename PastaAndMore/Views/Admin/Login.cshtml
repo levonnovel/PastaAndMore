@@ -7,35 +7,38 @@
 
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="language" content="English">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Dosis|PT+Sans+Narrow" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
-    <link href="~/Content/MyStyles/adminStyle.css" rel="stylesheet" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="~/Scripts/MyScripts/jquery-3.3.1.js"></script>
-    <script src="~/Scripts/MyScripts/AdminLogin.js"></script>
-    <title>AdminLogin</title>
+	<meta charset="utf-8" />
+	<meta name="language" content="English">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Dosis|PT+Sans+Narrow" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="~/Content/MyStyles/adminStyle.css" rel="stylesheet" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="~/Scripts/MyScripts/jquery-3.3.1.js"></script>
+	<script src="~/Scripts/MyScripts/AdminLogin.js"></script>
+	<title>AdminLogin</title>
 </head>
 <body>
-    <div class="card">
-        <div class="card-body">
-            <div class="login-box">
-                <div class="input-section">
-                    <span class="glyphicon glyphicon-user"></span>
-                    <input class="input-area" type="text" placeholder="Username" id="logIn">
-                </div>
-                <div class="input-section">
-                    <span class="glyphicon glyphicon-lock"></span>
-                    <input class="input-area" type="password" placeholder="Password" id="password">
-                </div>
-
-                <button class="btn btn-sm" id="adminLogIn">Log in</button>
-            </div>
-        </div>
-    </div>
+	<div class="card">
+		<div class="card-body">
+			
+			<div class="login-box">
+				<form>
+					<div class="input-section">
+						<span class="glyphicon glyphicon-user"></span>
+						<input class="input-area" type="text" placeholder="Username" id="logIn">
+					</div>
+					<div class="input-section">
+						<span class="glyphicon glyphicon-lock"></span>
+						<input class="input-area" type="password" placeholder="Password" id="password">
+					</div>
+					<span id="invalidLogin">*Invalid Username or Password</span>
+					<input type="button" class="btn btn-sm" id="adminLogIn" value="Log in" />
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

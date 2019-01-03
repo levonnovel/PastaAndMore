@@ -61,14 +61,15 @@
 				</div>
 
 				<div>
-					<div><input type="checkbox" id="checkAllProducts"/></div>
+					<div><input type="checkbox" id="checkAllProducts" /></div>
 					<div><input type="button" value="Delete" id="deleteProducts" /></div>
+					<div><input type="button" value="Save" id="updateProducts" /></div>
 					<div class="col-sm-9">
 						<table id="table_id" class="col-sm-9 display">
 							<thead>
 								<tr>
 									<th class="text-center" scope="col">Tick</th>
-									<th class="text-center" scope="col">ID</th>
+									<th class="text-center" style="display:none" scope="col">ID</th>
 									<th class="text-center" scope="col">Name</th>
 									<th class="text-center" scope="col">Description</th>
 									<th class="text-center" scope="col">Price</th>
@@ -84,7 +85,7 @@
 									{
 										<tr>
 											<td><input type="checkbox" class="selectedProducts" /></td>
-											<td>@prod.ID</td>
+											<td style="display:none">@prod.ID</td>
 											<td contenteditable="true">@prod.Name</td>
 											<td contenteditable="true">@prod.Description</td>
 											<td contenteditable="true">@prod.Price</td>
@@ -122,6 +123,9 @@
 		</div>
 	</div>
 
+	<input type="text" value="input1" />
+	<input type="text" value="input2" />
+	<input type="text" value="input3" />
 	@*<div>
 			<input type="text" id="catName" placeholder="Input Category Name" />
 			<input type="text" id="catDesc" placeholder="Input Category Description" />

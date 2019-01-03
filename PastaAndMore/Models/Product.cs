@@ -42,6 +42,7 @@ namespace PastaAndMore.Models
 		}
 		public static void Update(Product p)
 		{
+			bool hasChanges = false;
 			Product origin = Product.GetProductById(p.ID);
 
 
@@ -51,6 +52,7 @@ namespace PastaAndMore.Models
 			{
 				if (elem.GetValue(p)?.ToString() != elem.GetValue(origin)?.ToString())
 				{
+					hasChanges = true;
 					queryString.Append(elem.Name);
 					queryString.Append(" = ");
 					queryString.Append("@"); //elem.GetValue(this)
@@ -60,11 +62,16 @@ namespace PastaAndMore.Models
 			}
 			if (p.Cat.ID != origin.Cat.ID)
 			{
+				hasChanges = true;
 				queryString.Append("Category_ID");
 				queryString.Append(" = ");
 				queryString.Append("@"); //elem.GetValue(this)
 				queryString.Append("cat_id");
 				queryString.Append(", ");
+			}
+			if (!hasChanges)
+			{
+				return;
 			}
 			queryString.Replace(",", "", queryString.Length - 20, 20);
 			queryString.Append("WHERE ID = ");

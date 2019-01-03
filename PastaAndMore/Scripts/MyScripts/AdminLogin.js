@@ -19,6 +19,8 @@
 			//alert(data.responseText);
 			if (data.success) {
 				location.href = "/Admin/Index";
+			} else {
+				$('#invalidLogin').show();
 			}
 		}
 

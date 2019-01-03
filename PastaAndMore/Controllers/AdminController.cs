@@ -47,50 +47,21 @@ namespace PastaAndMore.Controllers
 				responseText = "The attached file is not supported."
 			});
 		}
-		public JsonResult UpdateProduct(string id, string name, string desc, int price, string path, string catName)
+		public JsonResult UpdateCategory(Category cat)
 		{
-
-			Product p = new Product() { ID = Convert.ToInt32(id), Name = name, Description = desc, Price = price, ImgPath = path, Cat = Category.GetCategoryByName(catName) };
-			//Product p = Product.GetProductById(Convert.ToInt32(id));
-			Product.Update(p);
-			return Json(new
-			{
-				success = true,
-				responseText = "The product has beens succesfully changed"
-			});
-		}
-		public JsonResult UpdateCategory(string id, string name, string desc)
-		{
-
-			Category p = new Category() { ID = Convert.ToInt32(id), Name = name, Description = desc };
-			//Product p = Product.GetProductById(Convert.ToInt32(id));
-			Category.Update(p);
+			Category.Update(cat);
 			return Json(new
 			{
 				success = true,
 				responseText = "The product has been succesfully changed"
 			});
 		}
-		public JsonResult DeleteProducts(int[] arr)
-		{
-
-			foreach(int el in arr)
-			{
-				Product.Delete(el);
-			}
-			//Product.Delete(Convert.ToInt32(id));
-			return Json(new
-			{
-				success = true,
-				responseText = "The Product has been succesfully Deleted"
-			});
-		}
 		public JsonResult DeleteCategory(string id)
 		{
 			var products = Product.GetAllProducts();
-			foreach(var prod in products)
+			foreach (var prod in products)
 			{
-				if(prod.Cat.ID == Convert.ToInt32(id))
+				if (prod.Cat.ID == Convert.ToInt32(id))
 				{
 					return Json(new
 					{
@@ -106,6 +77,49 @@ namespace PastaAndMore.Controllers
 				responseText = "The Category has been succesfully Deleted"
 			});
 		}
+		public JsonResult DeleteProducts(int[] arr)
+		{
+
+			foreach(int el in arr)
+			{
+				Product.Delete(el);
+			}
+			//Product.Delete(Convert.ToInt32(id));
+			return Json(new
+			{
+				success = true,
+				responseText = "The Product has been succesfully Deleted"
+			});
+
+		}
+		public JsonResult UpdateProducts(ProductType[] arr)
+		{
+			foreach (var el in arr)
+			{
+				Product p = new Product()
+				{
+					ID = el.ID,
+					Name = el.Name,
+					Description = el.Desc,
+					Price = el.Price,
+					ImgPath = el.ImgPath,
+					Cat = Category.GetCategoryByName(el.CatName)
+				};
+				Product.Update(p);
+			}
+			//foreach (int el in arr)
+			//{
+			//	Product.Delete(el);
+			//}
+			////Product.Delete(Convert.ToInt32(id));
+			return Json(new
+			{
+				success = true,
+				responseText = "The Products had been succesfully Updated"
+			});
+
+		}
+		
 		public JsonResult AddProduct(string name, string desc, int price, string path, string cat)
 		{
 			List<Product> products = Product.GetAllProducts();
