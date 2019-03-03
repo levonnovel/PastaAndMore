@@ -20,7 +20,7 @@ namespace PastaAndMore.Controllers
 			return View();
 		}
 
-		public ActionResult Change(string lang)
+		public JsonResult Change(string lang)
 		{
 			if(lang != null)
 			{
@@ -35,7 +35,11 @@ namespace PastaAndMore.Controllers
 
 			SetResource();
 
-			return View("~/Views/Home/Index.cshtml");
+			return Json(new
+			{
+				success = true
+				//responseText = "The Product has been succesfully Deleted"
+			});
 		}
 	}
 }

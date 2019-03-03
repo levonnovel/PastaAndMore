@@ -1,200 +1,239 @@
 ﻿@*@model List<PastaAndMore.Models.Category>*@
-@model Tuple<List<PastaAndMore.Models.Category>, List<PastaAndMore.Models.Product>>
+@model Tuple<List<PastaAndMore.Models.Category>, List<PastaAndMore.Models.Product>, List<PastaAndMore.Models.IMG>, List<PastaAndMore.Models.Opinion>>
 
 @{
-    /**/
+	/**/
 
-    Layout = null;
+	Layout = null;
 }
 
 <!DOCTYPE html>
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>AdminPage</title>
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+	<meta name="viewport" content="width=device-width" />
+	<title>AdminPage</title>
+	<link href="~/Content/bootstrap.css" rel="stylesheet" />
 
-    <script src="~/Scripts/MyScripts/jquery-3.3.1.js"></script>
-    <script src="~/Scripts/MyScripts/AdminPage.js"></script>
+	<script src="~/Scripts/MyScripts/jquery-3.3.1.js"></script>
+	<script src="~/Scripts/MyScripts/AdminPage.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-    <link href="~/Content/MyStyles/adminIndexStyle.css" rel="stylesheet" />
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-    <link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+	<link href="~/Content/MyStyles/adminIndexStyle.css" rel="stylesheet" />
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+	<link href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
 
 
 </head>
 <body>
-    <div class="container-menu">
-        <div id="addProduct" class="container text-center container-addProduct">
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="panel panel-default text-center">
-                        <div class="panel-heading">
-                            <input type="text" id="productName" placeholder="Product Name" autocorrect="off" autocapitalize="off" spellcheck="false" />
-                            <select id="Cats">
-                                <option value="" disabled selected>Type</option>
+	<div class="container-menu">
+		<div id="addProduct" class="container text-center container-addProduct">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="panel panel-default text-center">
+						<div class="panel-heading">
+							<input type="text" id="productName" placeholder="Product Name" autocorrect="off" autocapitalize="off" spellcheck="false" />
+							<select id="Cats">
+								<option value="" disabled selected>Type</option>
 
-                                @{
-                                    foreach (var cat in Model.Item1)
-                                    {
-                                        <option>@cat.Name</option>
-                                    }
-                                }
-                            </select>
+								@{
+									foreach (var cat in Model.Item1)
+									{
+										<option>@cat.Name</option>
+									}
+								}
+							</select>
 
-                            <input type="text" id="productImgPath" class="inputPath" placeholder="Product Image Path" autocorrect="off" autocapitalize="off" spellcheck="false" />
-                        </div>
-                        <div class="panel-body">
-                            <textarea id="productDesc" placeholder="Product Description"> </textarea>
-                        </div>
-                        <div class="panel-footer">
-                            <h4><label for="priceL">Price:</label> <input type="text" id="priceL" placeholder="Input the Price" autocorrect="off" autocapitalize="off" spellcheck="false" /> AMD</h4>
-                            @*<h4><label for="priceM">M:</label> <input type="text" id="priceM" placeholder="Price of a Medium Portion" autocorrect="off" autocapitalize="off" spellcheck="false" /> AMD</h4>
-                                <h4><label for="priceS">S:</label> <input type="text" id="priceS" placeholder="Price of a Small Portion" autocorrect="off" autocapitalize="off" spellcheck="false" /> AMD</h4>*@
-                            <div>
-                                <button class="btn-success" id="AddProduct">Add</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+							<input type="text" id="productImgPath" class="inputPath" placeholder="Product Image Path" autocorrect="off" autocapitalize="off" spellcheck="false" />
+						</div>
+						<div class="panel-body">
+							<textarea id="productDesc" placeholder="Product Description"> </textarea>
+						</div>
+						<div class="panel-footer">
+							<h4><label for="priceL">Price:</label> <input type="text" id="priceL" placeholder="Input the Price" autocorrect="off" autocapitalize="off" spellcheck="false" /> AMD</h4>
+							@*<h4><label for="priceM">M:</label> <input type="text" id="priceM" placeholder="Price of a Medium Portion" autocorrect="off" autocapitalize="off" spellcheck="false" /> AMD</h4>
+								<h4><label for="priceS">S:</label> <input type="text" id="priceS" placeholder="Price of a Small Portion" autocorrect="off" autocapitalize="off" spellcheck="false" /> AMD</h4>*@
+							<div>
+								<button class="btn-success" id="AddProduct">Add</button>
+							</div>
+						</div>
+					</div>
+				</div>
 
-                <div class="container containerTable">
-                    <div><input type="button" value="Save" id="updateProducts" /> <input type="button" value="Delete" id="deleteProducts" /></div>
-                    <div class="col-sm-9">
-                        <table id="table_id" class="col-sm-9 display">
-                            <thead>
-                                <tr>
-                                    <th class="text-center selectAll" scope="col"><input type="checkbox" class="form-check-input" id="checkAllProducts" /></th>
-                                    <th class="text-center" scope="col">ID</th>
-                                    <th class="text-center" scope="col">Name</th>
-                                    <th class="text-center" scope="col">Description</th>
-                                    <th class="text-center" scope="col">Price</th>
-                                    <th class="text-center" scope="col">Image Path</th>
-                                    <th class="text-center" scope="col">Category</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+				<div class="container containerTable">
+					<div>
+						<input type="button" value="Save" id="updateProducts" />
+						<input type="button" value="Delete" id="deleteProducts" />
+					</div>
+					<div class="col-sm-9">
+						<table id="table_id" class="col-sm-9 display">
+							<thead>
+								<tr>
+									<th class="text-center selectAll" scope="col"><input type="checkbox" class="form-check-input" id="checkAllProducts" /></th>
+									<th class="text-center" scope="col" style="display:none;">ID</th>
+									<th class="text-center" scope="col">Name</th>
+									<th class="text-center" scope="col">Description</th>
+									<th class="text-center" scope="col">Price</th>
+									<th class="text-center" scope="col">Image Path</th>
+									<th class="text-center" scope="col">Category</th>
+								</tr>
+							</thead>
+							<tbody>
 
-                                @{
+								@{
 
-                                    foreach (var prod in Model.Item2)
-                                    {
-                                        <tr>
-                                            <td><input type="checkbox" class="selectedProducts form-check-input" /></td>
-                                            <td>@prod.ID</td>
-                                            <td contenteditable="true" autocorrect="off" autocapitalize="off" spellcheck="false">@prod.Name</td>
-                                            <td contenteditable="true" autocorrect="off" autocapitalize="off" spellcheck="false">@prod.Description</td>
-                                            <td contenteditable="true" autocorrect="off" autocapitalize="off" spellcheck="false">@prod.Price</td>
-                                            <td contenteditable="true" autocorrect="off" autocapitalize="off" spellcheck="false">@prod.ImgPath</td>
-                                            <td contenteditable="true" autocorrect="off" autocapitalize="off" spellcheck="false">
+									foreach (var prod in Model.Item2)
+									{
+										<tr>
+											<td><input type="checkbox" class="selectedProducts form-check-input" /></td>
+											<td style="display:none;">@prod.ID</td>
+											<td contenteditable="true" autocorrect="off" autocapitalize="off" spellcheck="false">@prod.Name</td>
+											<td contenteditable="true" autocorrect="off" autocapitalize="off" spellcheck="false">@prod.Description</td>
+											<td contenteditable="true" autocorrect="off" autocapitalize="off" spellcheck="false">@prod.PriceAMD</td>
+											<td contenteditable="true" autocorrect="off" autocapitalize="off" spellcheck="false">@prod.ImgPath</td>
+											<td contenteditable="true" autocorrect="off" autocapitalize="off" spellcheck="false">
+												<select>
+													@foreach (var cat in Model.Item1)
+													{
+														if (prod.Cat.ID == cat.ID)
+														{
+															<option selected="selected">
+																@cat.Name
+															</option>
+														}
+														else
+														{
+															<option>
+																@cat.Name
+															</option>
 
-                                                <select>
-                                                    @foreach (var cat in Model.Item1)
-                                                    {
-                                                        if (prod.Cat.ID == cat.ID)
-                                                        {
-                                                            <option selected="selected">
-                                                                @cat.Name
-                                                            </option>
-                                                        }
-                                                        else
-                                                        {
-                                                            <option>
-                                                                @cat.Name
-                                                            </option>
+														}
+													}
+												</select>
+											</td>
+										</tr>
+									}
+								}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-                                                        }
-                                                    }
-                                                </select>
+	@*<div>
+			<input type="text" id="catName" placeholder="Input Category Name" />
+			<input type="text" id="catDesc" placeholder="Input Category Description" />
 
-                                            </td>
-                                        </tr>
-                                    }
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+			<button id="AddCategory">Add</button>
+		</div>
+		<div>
+			<table border="1">
+				@{
 
-    @*<div>
-            <input type="text" id="catName" placeholder="Input Category Name" />
-            <input type="text" id="catDesc" placeholder="Input Category Description" />
+					foreach (var cat in Model.Item1)
+					{
+						<tr>
+							<td>@cat.ID</td>
+							<td contenteditable="true">@cat.Name</td>
+							<td contenteditable="true">@cat.Description</td>
+							<td><button class="updateCategory">save</button></td>
+							<td><button class="deleteCategory">delete</button></td>
+						</tr>
+					}
+				}
+			</table>
+		</div>*@
 
-            <button id="AddCategory">Add</button>
-        </div>
-        <div>
-            <table border="1">
-                @{
 
-                    foreach (var cat in Model.Item1)
-                    {
-                        <tr>
-                            <td>@cat.ID</td>
-                            <td contenteditable="true">@cat.Name</td>
-                            <td contenteditable="true">@cat.Description</td>
-                            <td><button class="updateCategory">save</button></td>
-                            <td><button class="deleteCategory">delete</button></td>
-                        </tr>
-                    }
-                }
-            </table>
-        </div>*@
+	<div>
 
-    <div class="container">
-        <form>
-            <div class="form-group">
-                <label for="addImageCarousel">Add image to a carousel</label>
-                <input type="file" class="form-control-file" accept="image/*" id="addImageCarousel">
-            </div>
-        </form>
-        <form>
-            <div class="form-group">
-                <label for="addImageGallery">Add image to a gallery</label>
-                <input type="file" class="form-control-file" accept="image/*" id="addImageGallery">
-            </div>
-        </form>
+		<input type="text" class="carouselIMG" value="@Model.Item3[3].Path" attrID="@Model.Item3[3].ID"/>
+		<input type="text" class="carouselIMG" value="@Model.Item3[4].Path" attrID="@Model.Item3[4].ID"/>
+		<input type="text" class="carouselIMG" value="@Model.Item3[5].Path" attrID="@Model.Item3[5].ID"/>
+		<input type="button" id="UpdateCarousel" value="update" />
+		<br />
+		<input type="text" class="GalleryIMG" value="@Model.Item3[0].Path" attrID="@Model.Item3[0].ID"/>
+		<input type="text" class="GalleryIMG" value="@Model.Item3[1].Path" attrID="@Model.Item3[1].ID"/>
+		<input type="text" class="GalleryIMG" value="@Model.Item3[2].Path" attrID="@Model.Item3[2].ID"/>
+		<input type="button" id="UpdateGallery" value="update" />
 
-    </div>
-    <script>
-        $('#table_id').dataTable({
-            order: [],
-            columnDefs: [
-                {
-                    "orderable": false,
-                    "targets": [0]
-                },
-                {
-                    "targets": [1],
-                    "visible": false,
-                    "searchable": false
-                },
-                {
-                    "targets": [3],
-                    "searchable": false
-                },
-                {
-                    "targets": [5],
-                    "searchable": false
-                },
-                {
-                    "targets": [6],
-                    "render": function (data, type, full, meta) {
-                        if (type === 'filter' || type === 'sort') {
-                            var api = new $.fn.dataTable.Api(meta.settings);
-                            var td = api.cell({ row: meta.row, column: meta.col }).node();
-                            data = $('select, input', td).val();
-                        }
-                        return data;
-                    }
-                }
-            ]
-        }
-        );
-    </script>
+	</div>
+
+	<div class="container">
+		<form>
+			<div class="form-group">
+				<label for="addImageCarousel">Add image to a carousel</label>
+				<input type="file" class="form-control-file" accept="image/*" id="addImageCarousel">
+			</div>
+		</form>
+		<form>
+			<div class="form-group">
+				<label for="addImageGallery">Add image to a gallery</label>
+				<input type="file" class="form-control-file" accept="image/*" id="addImageGallery">
+			</div>
+		</form>
+
+	</div>
+
+	<div id="customerOpinions">
+		<table border="1">
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Country</th>
+				<th>Comments</th>
+			</tr>
+			@{
+				foreach (var op in Model.Item4)
+				{
+			<tr>
+				<td>@op.Name</td>
+				<td>@op.Email</td>
+				<td>@op.Country</td>
+				<td>@op.Comments</td>
+			</tr>
+				}
+			}
+			
+		</table>
+	</div>
+	<script>
+		$('#table_id').dataTable({
+			order: [],
+			columnDefs: [
+				{
+					"orderable": false,
+					"targets": [0]
+				},
+				//{
+				//	"targets": [1],
+				//	"visible": false,
+				//	"searchable": false
+				//},
+				{
+					"targets": [3],
+					"searchable": false
+				},
+				{
+					"targets": [5],
+					"searchable": false
+				},
+				{
+					"targets": [6],
+					"render": function (data, type, full, meta) {
+						if (type === 'filter' || type === 'sort') {
+							var api = new $.fn.dataTable.Api(meta.settings);
+							var td = api.cell({ row: meta.row, column: meta.col }).node();
+							data = $('select, input', td).val();
+						}
+						return data;
+					}
+				}
+			]
+		}
+		);
+	</script>
 </body>
 </html>

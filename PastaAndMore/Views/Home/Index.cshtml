@@ -1,7 +1,10 @@
-﻿@{
+﻿@using PastaAndMore.Models
+@model Tuple<List<IMG>, List<IMG>>
+
+@{
     ViewBag.Title = "Pasta&amp;More";
 }
-
+<script src="~/Scripts/MyScripts/HomePage.js"></script>
 <main>
     <div id="menu">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -15,21 +18,21 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="~/Content/images/img1.jpg" alt="Pizza">
+                    <img src=@Model.Item1[0].Path alt="Pizza">
                     <div class="carousel-caption">
                         <h3><a href="#">Delicious Italian Pizzas</a></h3>
                     </div>
                 </div>
 
                 <div class="item">
-                    <img src="~/Content/images/img2.jpg" alt="Burgers">
+                    <img src=@Model.Item1[1].Path alt="Burgers">
                     <div class="carousel-caption">
                         <h3><a href="#">Juiciest American Burgers</a></h3>
                     </div>
                 </div>
 
                 <div class="item">
-                    <img src="~/Content/images/img3.jpg" alt="Salad">
+                    <img src=@Model.Item1[2].Path alt="Salad">
                     <div class="carousel-caption">
                         <h3><a href="#">Delicate Continental Salads</a></h3>
                     </div>
@@ -109,7 +112,7 @@
         <div class="row text-center">
             <div class="col-sm-4">
                 <div class="thumbnail">
-                    <img src="~/Content/images/aaa.jpg" alt="Abovyan St" id="myImg">
+                    <img src=@Model.Item2[0].Path alt="Abovyan St" id="myImg">
                     <p><strong>Abovyan St</strong></p>
                     <!-- The Modal -->
                     <div id="myModal" class="modal">
@@ -127,7 +130,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="thumbnail">
-                    <img src="~/Content/images/aaa.jpg" alt="Komitas St" id="myImg">
+                    <img src=@Model.Item2[1].Path alt="Komitas St" id="myImg">
                     <p><strong>Komitas St</strong></p>
                     <!-- The Modal -->
                     <div id="myModal" class="modal">
@@ -145,7 +148,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="thumbnail">
-                    <img src="~/Content/images/aaa.jpg" alt="Koghbatsi St" id="myImg">
+                    <img src="@Model.Item2[2].Path" alt="Koghbatsi St" id="myImg">
                     <p><strong>Koghbatsi St</strong></p>
                     <!-- The Modal -->
                     <div id="myModal" class="modal">
@@ -189,15 +192,15 @@
             <div class="col-md-4">
                 <div class="row">
                     <div class="col-sm-6 form-group">
-                        <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                        <input class="form-control" id="customerName" name="name" placeholder="Name" type="text" required>
                     </div>
                     <div class="col-sm-6 form-group">
-                        <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                        <input class="form-control" id="customerEmail" name="email" placeholder="Email" type="email" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12 form-group">
-                        <select class="form-control col-sm-6">
+                        <select id="customerCountry" class="form-control col-sm-6">
                             <option value="" disabled selected>Select your country</option>
                             <option value="AF">Afghanistan</option>
                             <option value="AX">Åland Islands</option>
@@ -211,7 +214,7 @@
                             <option value="AG">Antigua and Barbuda</option>
                             <option value="AR">Argentina</option>
                             <option value="AM">Armenia</option>
-                            <option value="AW">Aruba</option>
+                            <option value="AW">ARUBa</option>
                             <option value="AU">Australia</option>
                             <option value="AT">Austria</option>
                             <option value="AZ">Azerbaijan</option>
@@ -451,11 +454,11 @@
                         </select>
                     </div>
                 </div>
-                <textarea class="form-control" id="comments" name="comments" placeholder="Your message" rows="9" style="resize: none"></textarea>
+                <textarea class="form-control" id="customerComments" name="comments" placeholder="Your message" rows="9" style="resize: none"></textarea>
                 <br>
                 <div class="row">
                     <div class="col-md-12 form-group submit-button">
-                        <button class="btn pull-right" type="submit">Send</button>
+                        <button type="submit" id="sendOpinion" class="btn pull-right" >Send</button>
                     </div>
                 </div>
             </div>

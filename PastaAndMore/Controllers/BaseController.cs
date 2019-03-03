@@ -11,6 +11,11 @@ namespace PastaAndMore.Controllers
 {
 	public class BaseController : Controller
 	{
+		public class DataObject
+		{
+			public string Base { get; set; }
+
+		}
 		public void SetResource()
 		{
 			Dictionary<string, string> categories = new Dictionary<string, string>();

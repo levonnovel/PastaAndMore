@@ -17,6 +17,8 @@
 	<script src="~/Scripts/MyScripts/HtmlPageScrolling.js"></script>"
 	@*<script src="~/Scripts/MyScripts/ImageModals.js"></script>*@
 	<script src="~/Scripts/modernizr-2.6.2.js"></script>
+	<script src="~/Scripts/MyScripts/CurrencyChanger.js"></script>
+	<script src="~/Scripts/MyScripts/LanguageChanger.js"></script>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 	<header>
@@ -70,11 +72,14 @@
                                 Language
                                 <span class="caret"></span>
                             </a>
-                            <ul class="dropdown-menu">
-                                <li class="active">@Html.ActionLink("EN", "Change", "MultiLanguage", new { lang = "en" }, null)</li>
-                                <li>@Html.ActionLink("RU", "Change", "MultiLanguage", new { lang = "ru" }, null) </li>
-                                <li>@Html.ActionLink("AM", "Change", "MultiLanguage", new { lang = "hy" }, null)</li>
-                            </ul>
+							<ul class="dropdown-menu">
+								@*<li class="active">@Html.ActionLink("EN", "Change", "MultiLanguage", new { lang = "en" }, null)</li>
+								<li>@Html.ActionLink("RU", "Change", "MultiLanguage", new { lang = "ru" }, null) </li>
+								<li>@Html.ActionLink("AM", "Change", "MultiLanguage", new { lang = "hy" }, null)</li>*@
+								<li class="active lang" value="EN">EN</li>
+                                <li class="lang" value="RU">RU</li>
+                                <li class="lang" value="HY">AM</li>
+							</ul>
                         </li>
                     </ul>
 
@@ -84,12 +89,15 @@
                                 Currency
                                 <span class="caret"></span>
                             </a>
-                            <ul class="dropdown-menu">
-                                <li class="active"><span class="flag-icon flag-icon-gr"></span><a href="#">AMD</a></li>
-                                <li><a href="#">RUR</a></li>
-                                <li><a href="#">EUR</a></li>
-                                <li><a href="#">USD</a></li>
-                            </ul>
+							<ul class="dropdown-menu">
+								<li class="currency active"><span class="flag-icon flag-icon-gr"></span><a href="#">AMD</a></li>
+								<li class="currency"><span class="flag-icon flag-icon-gr"></span><a href="#">USD</a></li>
+								<li class="currency"><span class="flag-icon flag-icon-gr"></span><a href="#">EUR</a></li>
+								<li class="currency"><span class="flag-icon flag-icon-gr"></span><a href="#">RUR</a></li>
+								@*<li class="currency">RUR</li>
+								<li class="currency">EUR</li>
+								<li class="currency">USD</li>*@
+							</ul>
                         </li>
                     </ul>
 

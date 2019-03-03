@@ -103,7 +103,7 @@
 			}
 		}
 	})
-
+	
 	$('#deleteProducts').on('click', (e) => {
 		var products = $('.selectedProducts:checked');
 		console.log(products);
@@ -121,7 +121,6 @@
 		var jsonObj = JSON.stringify({ arr: arr });
 
 		console.log(jsonObj);
-		$.datatype
 		$.ajax({
 			type: "post",
 			url: 'DeleteProducts',
@@ -174,7 +173,6 @@
 		var jsonObj = JSON.stringify({ arr: arr });
 
 		console.log(jsonObj);
-		$.datatype
 		$.ajax({
 			type: "post",
 			url: 'DeleteProducts',
@@ -225,7 +223,6 @@
 		var jsonObj = JSON.stringify({ arr: arr });
 
 		console.log(jsonObj);
-		$.datatype
 		$.ajax({
 			type: "post",
 			url: 'UpdateProducts',
@@ -354,6 +351,94 @@
 		$($(e.target).parent().parent().children()[0].firstChild).prop('checked', true);
 	})
 
+	$('#UpdateCarousel').on('click', () => {
+		var elements = $(".carouselIMG");
+
+
+		var arr = [],
+			element;
+		elements.each((index, item) => {
+
+			arr.push({
+				id: +$(item).attr('attrID'),
+				type: '1',
+				path: $(item).val(),
+			})
+		})
+		console.log(arr);
+
+		var jsonObj = JSON.stringify({ arr: arr });
+
+		console.log(jsonObj);
+		$.ajax({
+			type: "post",
+			url: 'UpdateImgs',
+			data: { arr: arr },
+			contenttype: 'application/json; charset=utf-8',
+			datatype: "json",
+			success: successfunc,
+			error: errorfunc
+		});
+
+		function successfunc(data, status) {
+			alert(data.responseText);
+			if (data.success) {
+				location.reload();
+			}
+		}
+
+		function errorfunc(data, status) {
+			alert(data.responseText);
+			if (data.success) {
+				location.href = "/admin/index";
+			}
+		}
+	})
+
+
+	$('#UpdateGallery').on('click', () => {
+		var elements = $(".GalleryIMG");
+
+
+		var arr = [],
+			element;
+		elements.each((index, item) => {
+
+			arr.push({
+				id: +$(item).attr('attrID'),
+				type: '1',
+				path: $(item).val(),
+			})
+		})
+		console.log(arr);
+
+		var jsonObj = JSON.stringify({ arr: arr });
+
+		console.log(jsonObj);
+		$.ajax({
+			type: "post",
+			url: 'UpdateImgs',
+			data: { arr: arr },
+			contenttype: 'application/json; charset=utf-8',
+			datatype: "json",
+			success: successfunc,
+			error: errorfunc
+		});
+
+		function successfunc(data, status) {
+			alert(data.responseText);
+			if (data.success) {
+				location.reload();
+			}
+		}
+
+		function errorfunc(data, status) {
+			alert(data.responseText);
+			if (data.success) {
+				location.href = "/admin/index";
+			}
+		}
+	})
 })
 
 $(document).ready(function () {

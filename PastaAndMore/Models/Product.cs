@@ -13,7 +13,11 @@ namespace PastaAndMore.Models
 		public int ID { get; set; }
 		public string Name { get; set; }
 		public string Description { get; set; }
-		public decimal Price { get; set; }
+		public double PriceAMD { get; set; }
+		public double PriceUSD { get; set; }
+		public double PriceEUR { get; set; }
+		public double PriceRUR { get; set; }
+		public static string CurrentCurrency { get; set; }
 		public string ImgPath { get; set; }
 		public Category Cat { get; set; }
 		public static void AddProduct(Product p)
@@ -25,7 +29,7 @@ namespace PastaAndMore.Models
 				SqlCommand cmd = new SqlCommand("INSERT INTO Products VALUES(@name, @desc, @price, @imgPath, @cat_id); ", conn);
 				SqlParameter paramID = new SqlParameter("@name", p.Name);
 				SqlParameter paramDesc = new SqlParameter("@desc", p.Description);
-				SqlParameter paramPrice = new SqlParameter("@price", p.Price);
+				SqlParameter paramPrice = new SqlParameter("@price", p.PriceAMD);
 				SqlParameter paramImgPath = new SqlParameter("@imgPath", p.ImgPath);
 				SqlParameter paramCatID = new SqlParameter("@cat_id", p.Cat.ID);
 				cmd.Parameters.Add(paramID);
@@ -82,7 +86,7 @@ namespace PastaAndMore.Models
 				SqlCommand cmd = new SqlCommand(Convert.ToString(queryString), conn);
 				SqlParameter paramID = new SqlParameter("@name", p.Name);
 				SqlParameter paramDesc = new SqlParameter("@description", p.Description);
-				SqlParameter paramPrice = new SqlParameter("@price", p.Price);
+				SqlParameter paramPrice = new SqlParameter("@price", p.PriceAMD);
 				SqlParameter paramImgPath = new SqlParameter("@imgPath", p.ImgPath);
 				SqlParameter paramCatID = new SqlParameter("@cat_id", p.Cat.ID);
 				cmd.Parameters.Add(paramID);
@@ -128,7 +132,7 @@ namespace PastaAndMore.Models
 								ID = Convert.ToInt32(dr["ID"]),
 								Name = dr["Name"].ToString(),
 								Description = dr["Description"].ToString(),
-								Price = Convert.ToInt32(dr["Price"].ToString()),
+								PriceAMD = Convert.ToInt32(dr["Price"].ToString()),
 								ImgPath = dr["imgPath"].ToString(),
 								Cat = Category.GetCategoryByID(Convert.ToInt32(dr["Category_ID"]))
 							}
@@ -157,7 +161,7 @@ namespace PastaAndMore.Models
 						ID = Convert.ToInt32(dr["ID"]),
 						Name = dr["Name"].ToString(),
 						Description = dr["Description"].ToString(),
-						Price = Convert.ToInt32(dr["Price"].ToString()),
+						PriceAMD = Convert.ToInt32(dr["Price"].ToString()),
 						ImgPath = dr["imgPath"].ToString(),
 						Cat = Category.GetCategoryByID(Convert.ToInt32(dr["Category_ID"].ToString()))
 
@@ -191,7 +195,7 @@ namespace PastaAndMore.Models
 						Name = dr["Name"].ToString(),
 						Description = dr["Description"].ToString(),
 						ImgPath = dr["imgPath"].ToString(),
-						Price = Convert.ToUInt32(dr["Price"].ToString()),
+						PriceAMD = Convert.ToUInt32(dr["Price"].ToString()),
 						Cat = cat
 					});
 				}
